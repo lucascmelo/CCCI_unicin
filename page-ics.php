@@ -24,20 +24,23 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
   <div class="row">
     <div class="col-xs-12">
       <section class="section-default wow">
-        <h2 class="ui-title-block text-uppercase text-center"><?php echo the_field('page_titulo_principal'); ?></h2>
+        <h2 class="ui-title-block text-center"><?php echo the_field('page_titulo_principal'); ?></h2>
         <?php
         $subTitle = get_field('page_subtitulo');
         if (!empty($subTitle)) {
         ?>
         <div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b text-center wow"><?php echo $subTitle; ?></div>
         <?php } ?>
+        <div class="text-center">
         <?php the_content(); ?>
+        </div>
       </section>
     </div>
     <div class="col-md-6">
         <?php $instituicoes = new WP_Query(array('post_type' => 'instituicoes', 'posts_per_page'=> -1, 'order' => 'ASC', 'orderby' => 'title')); ?>
       <div class="col-xs-8">
-       <h2 class="ui-title-block text-uppercase text-center">Instituições Conscienciocêntricas (<?php echo $instituicoes->post_count; ?>)</h2>
+       <h4 class="ui-title-block text-uppercase text-center"  style="font-size: 22px;">Instituições Conscienciocêntricas (<?php echo $instituicoes->post_count; ?>)</h4>
+       <br>
       <table class="table table-ics">
         <tbody>
           <?php
@@ -68,7 +71,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     <div class="col-md-6">
       <div class="col-xs-12">
         <section class="wow">
-            <h2 class="ui-title-block text-uppercase text-center">TIMELINE</h2>
+            <h4 class="ui-title-block text-uppercase text-center" style="font-size: 22px;">TIMELINE</h4>
+            <br>
           <section id="cd-timeline" class="cd-container">
             <?php
             $isUNICIN = 'cd-timeline-unicin';

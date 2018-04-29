@@ -62,9 +62,19 @@ $(document).ready(function() {
     });
 
 
-    setInterval(function(){
+    var cycleIcs = setInterval(function(){
         jQuery('.ics-home-img .ic-nav-right').trigger('click');
     },5000);
+
+    jQuery('.ics-home').on('mouseenter', function(event) {
+        clearInterval(cycleIcs);
+    });
+
+    jQuery('.ics-home').on('mouseleave', function(event) {
+        cycleIcs = setInterval(function(){
+        jQuery('.ics-home-img .ic-nav-right').trigger('click');
+    },5000);
+    });
 
 /////////////////////////////////////////////////////////////////
 // Contato
