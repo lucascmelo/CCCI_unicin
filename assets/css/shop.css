@@ -1,0 +1,11 @@
+.slider-product {
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+.carousel-product {
+	margin-bottom: 50px;
+}
+.carousel-product .slides li {
+	margin-right: 10px;
+	cursor: pointer;
+}
