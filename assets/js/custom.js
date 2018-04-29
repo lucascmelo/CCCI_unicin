@@ -64,7 +64,7 @@ $(document).ready(function() {
 
     var cycleIcs = setInterval(function(){
         jQuery('.ics-home-img .ic-nav-right').trigger('click');
-    },5000);
+    },3000);
 
     jQuery('.ics-home').on('mouseenter', function(event) {
         clearInterval(cycleIcs);
@@ -73,7 +73,7 @@ $(document).ready(function() {
     jQuery('.ics-home').on('mouseleave', function(event) {
         cycleIcs = setInterval(function(){
         jQuery('.ics-home-img .ic-nav-right').trigger('click');
-    },5000);
+    },3000);
     });
 
 /////////////////////////////////////////////////////////////////
