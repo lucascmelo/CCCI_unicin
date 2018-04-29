@@ -27,7 +27,9 @@
 - IE8 page
 
 -------------------------------------------------------------------*/
-
+body {
+	font-size: 14px;
+}
 
 /* ======= GLOBAL ======= */
 
@@ -791,7 +793,7 @@
 		text-transform: none;
 	}
 	.header_mod-a .header-contacts__info {
-		font-family: 'Source Sans Pro';
+		font-family: 'Montserrat', sans-serif;
 		color: #ffffff;
 		font-size: 16px;
 		font-weight: 700;
@@ -1088,7 +1090,7 @@
 	}
 	.list-progress__percent {
 		display: block;
-		font-family: 'Source Sans Pro';
+		font-family: 'Montserrat', sans-serif;
 		color: rgb(102, 102, 102);
 		font-size: 36px;
 		font-weight: 700;
@@ -1231,7 +1233,7 @@
 		margin-bottom: 3px;
 	}
 	.staff__categories {
-		font-family: 'Source Sans Pro';
+		font-family: 'Montserrat', sans-serif;
 		font-size: 12px;
 		text-transform: uppercase;
 	}
@@ -1646,11 +1648,11 @@
 	}
 	.main-slider__title {
 		color: #ffffff;
-		font: 900 38px/1.1 'Source Sans Pro';
+		font: 900 38px/1.1 'Montserrat', sans-serif;
 		text-transform: uppercase;
 	}
 	.main-slider__text {
-		font-size: 15px;
+		font-size: 24px;
 		color: #fff;
 	}
 	.main-slider__text .border-decor {
@@ -2130,8 +2132,39 @@
 	color: #fff;
 }
 
-.img-ics {text-align: center;}
-.table-ics td {vertical-align: middle!important;line-height: normal!important;font-size: 16px;}
+.title-tabela-ics {
+	font-size: 22px;
+}
+
+.title-tabela-ics .ui-subtitle-block {
+	padding: 0;
+	margin: 10px 0 0;
+	font-size: 16px;
+	text-transform: lowercase!important;
+	letter-spacing: normal;
+}
+
+.img-ics {
+	text-align: center;
+}
+
+.table-ics td strong {
+	font-size: 14px;
+}
+
+.table-ics td {
+	padding: 15px 8px!important;
+	vertical-align: middle!important;
+	line-height: normal!important;
+	font-size: 12px;
+}
+
+.table-ics td .ics-infos {
+	margin-top: 10px;
+	width: 100%;
+	display: inline-block;
+	font-size: 14px;
+}
 
 
 .conteudo-home .post {

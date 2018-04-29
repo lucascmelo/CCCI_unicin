@@ -37,8 +37,8 @@
   </div>
 </div>
 <?php endif; ?>
-
-<div class="section-banner section-bg-2 wow">
+<?php /* ?>
+<div class="section-banner section-bg-2 wow ">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -54,6 +54,7 @@
     </div>
   </div>
 </div>
+<?php */ ?>
 
 <?php if (have_rows('destaque_home', 'option')): ?>
 <div class="section-area wow">
@@ -162,9 +163,9 @@ if($projetos->have_posts()):
   <div class="title-w-bg">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-5">
           <h2 class="title-w-bg__inner">
-            <?php echo __('NOSSOS PROJETOS', 'ccci'); ?>
+            <?php echo __('Ferramentas de Autopesquisa', 'ccci'); ?>
             <a class="btn btn-effect" href="<?php echo site_url('projetos'); ?>"><?php echo __('Saiba mais', 'ccci'); ?></a>
           </h2>
         </div>
@@ -176,13 +177,13 @@ if($projetos->have_posts()):
     <div class="isotope-filter">
       <?php
        while ( $projetos->have_posts() ) : $projetos->the_post();
-        $thumb = get_the_post_thumbnail_url();
+        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'bg-projetos');
         $link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
         $blank = (get_field('projetos_link_externo')) ? '_blank' : '';
       ?>
       <div class="isotope-item item-project">
         <img src="<?php echo $thumb; ?>">
-        <div class="isotope__hover">
+        <div class="isotope__hover" style="opacity: 1">
           <div class="isotope__inner">
             <h3 class="isotope__title"><?php the_title(); ?></h3>
             <a class="btn btn-default btn-effect" href="<?php echo $link; ?>" target="<?php echo $blank; ?>"><?php echo __('mais detalhes', 'ccci'); ?></a>
@@ -243,6 +244,7 @@ if($penseNisso->have_posts()):
 <?php endif; ?>
 
 <?php
+/*
 $instituicoes = new WP_Query(array('post_type' => 'instituicoes', 'posts_per_page'=> -1));
 if($instituicoes->have_posts()):
 ?>
@@ -279,4 +281,5 @@ if($instituicoes->have_posts()):
   </div>
 </section>
 <?php endif; ?>
+<?php */ ?>
 <?php get_footer(); ?>
