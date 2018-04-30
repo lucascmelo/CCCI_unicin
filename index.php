@@ -108,24 +108,28 @@
         <?php
         $instituicoes = new WP_Query(array('post_type' => 'instituicoes', 'posts_per_page'=> -1, 'order' => 'ASC', 'orderby' => 'rand'));
         ?>
-        <div class="col-sm-4 ics-home-col-1 row">
-          <figure class="ics-home-img">
+        <i class="fa fa-chevron-circle-left ic-nav-left"></i>
+        <i class="fa fa-chevron-circle-right ic-nav-right"></i>
+        <div class="col-xs-12">
+          <div class="col-sm-4 ics-home-col-1 row">
+            <figure class="ics-home-img">
+              <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
+                <span data-order="<?php echo $orderIC; ?>" class="<?php echo ($orderIC==1) ? 'active' : '' ?>" style="background-image: url(<?php the_field('ics_logotipo'); ?>);"></span>
+              <?php endwhile;endif; ?>
+            </figure>
+          </div>
+          <div class="col-sm-8 ics-home-content">
             <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
-              <span data-order="<?php echo $orderIC; ?>" class="<?php echo ($orderIC==1) ? 'active' : '' ?>" style="background-image: url(<?php the_field('ics_logotipo'); ?>);"></span>
+              <div data-order="<?php echo $orderIC; ?>" class="ics-home-desc <?php echo ($orderIC==1) ? 'active' : '' ?>">
+                <h3><a href="<?php the_field('ics_site'); ?>" target="_blank"><?php echo get_the_title() ?></a></h3>
+                <?php echo get_field('ics_nome') ?><br>
+                <p>
+                  <?php echo get_field('resumo_ic') ?><br>
+                  <a href="<?php the_field('ics_site'); ?>" target="_blank">Saiba mais</a>
+                </p>
+              </div>
             <?php endwhile;endif; ?>
-            <i class="fa fa-chevron-circle-left ic-nav-left"></i>
-            <i class="fa fa-chevron-circle-right ic-nav-right"></i>
-          </figure>
-        </div>
-        <div class="col-sm-8 ics-home-content">
-          <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
-            <div data-order="<?php echo $orderIC; ?>" class="ics-home-desc <?php echo ($orderIC==1) ? 'active' : '' ?>">
-              <h3><a href="<?php the_field('ics_site'); ?>" target="_blank"><?php echo get_the_title() ?></a></h3>
-              <?php echo get_field('ics_nome') ?><br>
-              <?php the_excerpt(); ?>
-              <a href="<?php the_field('ics_site'); ?>" target="_blank">Saiba mais</a>
-            </div>
-          <?php endwhile;endif; ?>
+          </div>
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ $(document).ready(function() {
     "use strict";
 
 
-    jQuery('.ics-home-img i').on('click', function(event) {
+    jQuery('.ics-home i').on('click', function(event) {
         event.preventDefault();
         var _this = jQuery(this),
         activeIMG = jQuery('.ics-home-img .active'),
@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 
     var cycleIcs = setInterval(function(){
-        jQuery('.ics-home-img .ic-nav-right').trigger('click');
+        jQuery('.ics-home .ic-nav-right').trigger('click');
     },3000);
 
     jQuery('.ics-home').on('mouseenter', function(event) {

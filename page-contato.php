@@ -10,10 +10,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 			<div class="col-xs-12">
 				<div class="section__inner">
 					<h1 class="ui-title-page"><?php the_title(); ?></h1>
-          <ol class="breadcrumb">
-            <li><a href="<?php echo site_url(); ?>">Home</a></li>
-            <li class="active"><?php echo get_the_title($ancestorsID); ?></li>
-          </ol>
+			          <ol class="breadcrumb">
+			            <li><a href="<?php echo site_url(); ?>">Home</a></li>
+			            <li class="active"><?php echo get_the_title($ancestorsID); ?></li>
+			          </ol>
 				</div>
 			</div>
 		</div>

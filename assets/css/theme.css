@@ -225,7 +225,7 @@ body {
 
 		.title-w-bg {
 			color: #fff;
-			background-color: #222;
+			background-color: #ddd;
 			height: 80px;
 		}
 		.title-w-bg__inner {
@@ -254,8 +254,8 @@ body {
 			left: -100vw;
 		}
 		.title-w-bg__inner .btn {
-			border-color: #333;
-			bottom: -13px;
+			border: 0;
+			bottom: 0;
 			color: #fff;
 			font-size: 13px;
 			left: 100%;
@@ -263,7 +263,7 @@ body {
 			text-transform: uppercase;
 			padding: 10px 22px;
 			letter-spacing: 0;
-			background-color: #333;
+			background-color: #989898;
 		}
 		.title-w-bg__inner .border-decor {
 			left: 100%;
@@ -587,9 +587,10 @@ body {
 		z-index: 9999;
 	}
 	.top-header {
-		background: none repeat scroll 0 0 #222;
+		background: none;
 		font-size: 14px;
 		width: 100%;
+		display: inline-block;
 		color: #ccc;
 		height: 40px;
 	}
@@ -605,8 +606,7 @@ body {
 		display: inline-block;
 	}
 	.top-header .social-links > li:hover > a {
-		color: #FFF;
-		text-decoration: none;
+		text-decoration: underline;
 	}
 	.top-header__slogan {
 		font-size: 13px;
@@ -615,7 +615,7 @@ body {
 		padding-bottom: 0;
 	}
 	.top-header__info li {
-		border-right: 1px solid #484848;
+		/*border-right: 1px solid #484848;*/
 	}
 	.top-header__contacts,
 	.top-header__contacts a {
@@ -641,14 +641,16 @@ body {
 	.header-language {
 		float: right;
 	}
+	.header-language .language-list a:hover {
+		background: #ddd;
+	}
 	.header-language__btn {
-		background-color: transparent;
-		border: none;
-		font-size: 13px;
+		font-size: 12px;
 		font-weight: 400;
-		padding: 9px 22px 11px;
-		border-left: 1px solid #484848;
-		border-right: 1px solid #484848;
+		padding: 6px;
+		border: 1px solid #ddd;
+		background: #ddd;
+		color: #333;
 	}
 	.language-list {
 		box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.57);
@@ -688,8 +690,12 @@ body {
 
 	.header .logo {
 		position: relative;
-		padding-top: 44px;
+		padding-top: 0;
+		padding-bottom: 20px;
 		display: block;
+	}
+	.header .logo img {
+		width: 100%;
 	}
 	.header-contacts {
 			color: #fff;
@@ -811,8 +817,8 @@ body {
 		margin-top: 7px;
 	}
 	.header_mod-b .yamm .nav > li > a {
-		color: #333;
-		padding-bottom: 44px;
+		color: #989898;
+		font-weight: 300;
 	}
 	.header_mod-b .btn_header_search {
 		color: #333;
@@ -820,7 +826,8 @@ body {
 		margin-right: 0;
 	}
 	.header_mod-b .yamm .dropdown-menu {
-		top: 82px;
+		top: 61px;
+		left: 2px;
 	}
 	.header_mod-b .yamm .full-width .dropdown-menu {
 		top: 90px;
@@ -906,6 +913,8 @@ body {
 	padding-top: 24px;
 	display: block;
 }
+
+.nav.navbar-nav .dropdown-menu 
 
 
 /* ======= FOOTER ======= */
@@ -1224,6 +1233,10 @@ body {
 		text-align: center;
 	}
 	.staff__img {
+		width: 270px;
+		height: 220px;
+		background: no-repeat center top;
+		background-size: cover;
 		position: relative;
 	}
 	.staff__name {
@@ -1243,6 +1256,8 @@ body {
 	.staff__description {
 	}
 	.staff__inner {
+		width:100%;
+		height: 100%;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -1323,7 +1338,7 @@ body {
 		margin-bottom: 23px;
 	}
 	.video-link__description {
-		font: 300 23px/1.33 'Roboto Slab';
+		font: 300 23px/1.33;
 		color: #333333;
 		margin-bottom: 27px;
 		letter-spacing: -0.02em;
@@ -1338,7 +1353,7 @@ body {
 	.isotope__hover {
 		position: absolute;
 		top: 0;
-		background-color: rgba(0, 0, 0, 0.7);
+		background-color: rgba(0, 0, 0, 0.4);
 		width: 100%;
 		height: 100%;
 		padding-left: 35px;
@@ -1788,7 +1803,7 @@ body {
   height: 40px;
   border-radius: 50%;
   text-align: center;
-  background: #1d2f97;
+  background: #262d79;
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -2178,6 +2193,7 @@ body {
 .ics-home {
 	margin: 50px 0;
 	display: flex;
+	position: relative;
 }
 
 .ics-home-col-1 {
@@ -2189,7 +2205,7 @@ body {
 	position: relative;
 	text-align: center;
 	flex: 1;
-	background-color: #ddd;
+	background-color: #fff;
 }
 
 .ics-home .ics-home-img span {
@@ -2199,7 +2215,7 @@ body {
 	top: 0;
 	left: 0;
 	display: none;
-	background-size: 90px auto;
+	background-size: 75%;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -2208,17 +2224,19 @@ body {
 	display: inline-block;
 }
 
-.ics-home .ics-home-img i {
+.ics-home .ic-nav-left,
+.ics-home .ic-nav-right {
 	margin-top: -16px;
 	top: 50%;
 	position: absolute;
 	font-size: 32px;
 	cursor: pointer;
 	transition: 0.2s;
+	z-index: 10;
 }
 
 .ics-home .ics-home-img i:hover {
-	color: #1d2f97;
+	color: #262d79;
 }
 
 .ic-nav-left {
@@ -2231,8 +2249,6 @@ body {
 
 .ics-home-content {
 	padding: 15px;
-	border: 3px solid #ddd;
-	background: #fff;
 }
 
 .ics-home-desc {
@@ -2246,4 +2262,8 @@ body {
 
 .section-bg-white {
 	background: #fff;
+}
+
+.block-conteudo-principal  ul li {
+	padding-bottom: 15px;
 }

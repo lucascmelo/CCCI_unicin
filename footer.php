@@ -13,6 +13,32 @@
 								</ul>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-sm-12">
+							  <?php
+							  $facebook = get_field('facebook', 'option');
+							  $twitter = get_field('twitter', 'option');
+							  $gplus = get_field('google_plus', 'option');
+							  $youtube = get_field('youtube', 'option');
+							  $instagram = get_field('instagram', 'option');
+							  ?>
+							  <?php if ($facebook!=""): ?>
+							  <a target="_blank" href="<?php echo $facebook; ?>"><i class="icon social_facebook"></i></a> 
+							  <?php endif ?>
+							  <?php if ($twitter!=""): ?>
+							  <a target="_blank" href="<?php echo $twitter; ?>"><i class="icon social_twitter"></i></a> 
+							  <?php endif ?>
+							  <?php if ($gplus!=""): ?>
+							  <a target="_blank" href="<?php echo $gplus; ?>"><i class="icon social_googleplus"></i></a> 
+							  <?php endif ?>
+							  <?php if ($youtube!=""): ?>
+							  <a target="_blank" href="<?php echo $youtube; ?>"><i class="icon social_youtube"></i></a> 
+							  <?php endif ?>
+							  <?php if ($instagram!=""): ?>
+							  <a target="_blank" href="<?php echo $instagram; ?>"><i class="icon social_instagram"></i></a> 
+							  <?php endif ?>
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>

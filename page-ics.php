@@ -4,7 +4,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
   $ancestorsID = get_ancestors(get_the_ID(), 'page');
   $ancestorsID = $ancestorsID[0];
 ?>
-<?php /* ?>
 <div class="section-title section-bg">
   <div class="container">
     <div class="row">
@@ -20,7 +19,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     </div>
   </div>
 </div>
-<?php */ ?>
 
 <div class="container">
   <div class="row">

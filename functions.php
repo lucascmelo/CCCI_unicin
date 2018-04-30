@@ -180,7 +180,7 @@ function navMain()
       'after'           => '',
       'link_before'     => '',
       'link_after'      => '',
-      'items_wrap'      => '<ul class="nav navbar-nav"><li><a href="'.site_url().'"><span aria-hidden="true" class="icon-home"></span></a></li>%3$s</ul>',
+      'items_wrap'      => '<ul class="nav navbar-nav"><li><a href="'.site_url().'">Início</a></li>%3$s</ul>',
       'depth'           => 0,
       'walker' => new My_Walker_Nav_Menu()
       )

@@ -51,15 +51,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 				<?php if($ancestorsID == get_id_by_slug('unicin')): ?>
 				<div class="widget">
 					<div class="widget-content">
-						<a class="download-link" href="http://67.223.248.71/tertulia/Verbetes/Lista%20Verbetes%20Download.xls" download><i class="icon flaticon-doc"></i><?php echo __('BAIXAR VERBETES', 'ccci'); ?></a>
-						<a class="download-link" href="<?php the_field('organograma', 'option'); ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('BAIXAR ORGANOGRAMA', 'ccci'); ?></a>
+						<?php $estatuto = get_field('estatuto', 'option'); ?>
+						<a class="download-link" href="<?php echo $estatuto['url']; ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('Estatuto', 'ccci'); ?></a>
+
+						<?php $organograma = get_field('estatuto', 'option'); ?>
+						<a class="download-link" href="<?php echo $organograma['url']; ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('Organograma', 'ccci'); ?></a>
 					</div>
 				</div>
 				<?php endif; ?>
 			</aside>
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-md-9 block-conteudo-principal">
 			<section class="section-default wow">
 				<h2 class="ui-title-block text-uppercase text-center"><?php echo the_field('page_titulo_principal'); ?></h2>
 				<?php
@@ -178,8 +181,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								the_row();
 						?>
 						<section class="staff">
-							<div class="staff__img">
-								<img class="center-block img-responsive" src="<?php the_sub_field('voluntario_foto', 'option') ?>" height="220" width="270" alt="Foto">
+							<div class="staff__img" style="background-image: url(<?php the_sub_field('voluntario_foto', 'option') ?>)">
 								<div class="staff__inner">
 									<div class="staff__description"><?php the_sub_field('voluntario_descricao', 'option') ?></div>
 									<span class="staff__contacts"></span>
