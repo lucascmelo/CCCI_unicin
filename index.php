@@ -160,7 +160,7 @@
 <?php endwhile;endif; ?>
 
 <?php
-$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> -1));
+$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> 8, 'orderby' => 'rand'));
 if($projetos->have_posts()):
 ?>
 <section class="section-area wow">

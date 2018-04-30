@@ -62,19 +62,19 @@ $(document).ready(function() {
     });
 
 
-    var cycleIcs = setInterval(function(){
-        jQuery('.ics-home .ic-nav-right').trigger('click');
-    },3000);
+    // var cycleIcs = setInterval(function(){
+    //     jQuery('.ics-home .ic-nav-right').trigger('click');
+    // },3000);
 
-    jQuery('.ics-home').on('mouseenter', function(event) {
-        clearInterval(cycleIcs);
-    });
+    // jQuery('.ics-home').on('mouseenter', function(event) {
+    //     clearInterval(cycleIcs);
+    // });
 
-    jQuery('.ics-home').on('mouseleave', function(event) {
-        cycleIcs = setInterval(function(){
-        jQuery('.ics-home-img .ic-nav-right').trigger('click');
-    },3000);
-    });
+    // jQuery('.ics-home').on('mouseleave', function(event) {
+    //     cycleIcs = setInterval(function(){
+    //     jQuery('.ics-home-img .ic-nav-right').trigger('click');
+    // },3000);
+    // });
 
 /////////////////////////////////////////////////////////////////
 // Contato
