@@ -28,12 +28,12 @@
 					$link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
 					$blank = (get_field('projetos_link_externo')) ? '_blank' : '';
 					?>
-					<div class="col-md-4 col-sm-6">
+					<div class="col-md-3 col-sm-6 col-xs-12">
 						<article class="post post_mod-f clearfix wow">
 							<div class="entry-main">
 								
 								<div class="entry-media">
-									<a href="services-details.html">
+									<a href="<?php echo $link; ?>">
 										<img class="img-responsive" src="<?php echo $thumb; ?>">
 									</a>
 								</div>

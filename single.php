@@ -23,7 +23,7 @@
 					<div class="widget-content">
 						<ul class="list-widget list-mark list-mark_mod-a">
 							<?php
-							$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> -1));
+							$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> -1, 'orderby' => 'post_title', 'order' => 'ASC'));
 							 while ( $projetos->have_posts() ) : $projetos->the_post();
 							  $link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
 							  $blank = (get_field('projetos_link_externo')) ? '_blank' : '';
@@ -40,7 +40,7 @@
 			<section class="section-default wow">
 				<?php wp_reset_query(); ?>
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<h2 class="ui-title-block text-uppercase text-center"><?php the_title(); ?></h2>
+				<h2 class="ui-title-block text-center"><?php the_title(); ?></h2>
 				<?php $thumb = get_the_post_thumbnail_url(get_the_ID());?>
 				<p class="text-center"><img src="<?php echo $thumb; ?>" class="img-responsive img-thumbnail"></p>
 				<?php the_content(); ?>

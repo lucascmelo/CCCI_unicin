@@ -32,10 +32,18 @@
                   </ul>
                 </div>
                 <div class="header-language btn-group">
-                  <button type="button" class="header-language__btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">PT <span class="caret"></span></button>
-                  <ul class="language-list dropdown-menu list-unstyled" role="menu">
-                    <li class="language-list__item"><a class="header-language__link" href="#">ENG</a></li>
-                  </ul>
+                  <?php 
+                  global $q_config;
+                  $language = $q_config['language'];
+                  $flag_location = qtranxf_flag_location();
+                  ?>
+                  <button type="button" class="header-language__btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img alt="<?php echo $q_config['language'] ?>" src="<?php echo $flag_location.$q_config['flag'][$language]; ?>"> <span class="caret"></span></button>
+                  <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+                  <!-- <ul class="language-list dropdown-menu list-unstyled" role="menu">
+                    <li class="language-list__item"><a class="header-language__link" href="<?php //echo home_url('/') ?>"><img src="<?php //echo plugins_url(); ?>/qtranslate-x/flags/br.png" alt="PT"></a></li>
+                    <li class="language-list__item"><a class="header-language__link" href="<?php //echo home_url() ?>/en"><img src="<?php //echo plugins_url(); ?>/qtranslate-x/flags/gb.png" alt="EN"></a></li>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -43,7 +51,7 @@
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-md-3 col-xs-12"><a href="<?php echo home_url(); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo.png" alt="logo"></a></div>
+            <div class="col-md-3 col-xs-12"><a href="<?php echo home_url(); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo-new.png" alt="logo"></a></div>
             <div class="col-md-9 col-xs-12">
               <div class="main-navig">
                 <div class="navbar yamm">
@@ -73,7 +81,7 @@
                       </form>
                     </div>
 
-                    <a href="<?php echo home_url(); ?>" class="logo pull-left"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"></a>
+                    <a href="<?php echo home_url(); ?>" class="logo pull-left"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-new.png" alt="logo"></a>
                     <?php navMain(); ?>
                   </nav>
                 </div>

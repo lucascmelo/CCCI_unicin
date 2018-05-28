@@ -5,38 +5,45 @@
   data-slider-height="650">
   <div class="sp-slides">
     <?php while ( have_rows('banner', 'option') ) : the_row(); ?>
-    <div class="sp-slide">
-      <img class="sp-image img-responsive" src="<?php echo the_sub_field('banner_imagem'); ?>">
+    <div class="sp-slide" href="###">
+      <?php if (get_sub_field('link_banner')): ?>
+      <a href="<?php the_sub_field('link_banner') ?>" target="_blank">
+      <?php endif ?>
+        <img class="sp-image img-responsive" src="<?php echo the_sub_field('banner_imagem'); ?>">
 
-      <h1 class="main-slider__title sp-layer"
-          data-horizontal="13vw"
-          data-vertical="35%"
-          data-show-transition="up"
-          data-hide-transition="left"
-          data-show-duration="800"
-          data-show-delay="400"
-          data-hide-delay="400">
-          <?php echo the_sub_field('banner_titulo'); ?>
-      </h1>
+        <h1 class="main-slider__title sp-layer"
+            data-horizontal="13vw"
+            data-vertical="35%"
+            data-show-transition="up"
+            data-hide-transition="left"
+            data-show-duration="800"
+            data-show-delay="400"
+            data-hide-delay="400">
+            <?php echo the_sub_field('banner_titulo'); ?>
+        </h1>
 
-      <div class="main-slider__text sp-layer hidden-xs"
-          data-horizontal="13vw"
-          data-vertical="50%"
-          data-height="30%"
-          data-width="35%"
-          data-show-transition="up"
-          data-hide-transition="left"
-          data-show-duration="800"
-          data-show-delay="1200"
-          data-hide-delay="1200">
-          <p class="main-slider__text"><?php echo the_sub_field('banner_subtitulo'); ?></p>
-          <div class="border-decor border-decor_mod-a"></div>
-      </div>
+        <div class="main-slider__text sp-layer hidden-xs"
+            data-horizontal="13vw"
+            data-vertical="50%"
+            data-height="30%"
+            data-width="35%"
+            data-show-transition="up"
+            data-hide-transition="left"
+            data-show-duration="800"
+            data-show-delay="1200"
+            data-hide-delay="1200">
+            <p class="main-slider__text"><?php echo the_sub_field('banner_subtitulo'); ?></p>
+            <div class="border-decor border-decor_mod-a"></div>
+        </div>
+      <?php if (get_sub_field('link_banner')): ?>
+      </a>
+      <?php endif ?>
     </div>
     <?php endwhile; ?>
   </div>
 </div>
 <?php endif; ?>
+
 <?php /* ?>
 <div class="section-banner section-bg-2 wow ">
   <div class="container">
@@ -82,82 +89,30 @@
             </div>
           </article>
           <?php endwhile; ?>
+          <?php if (have_rows('video', 'option')): while(have_rows('video', 'option')): the_row(); ?>
+          <article class="post post_mod-a clearfix">
+            <div class="entry-media col-sm-4">
+              <a class="prettyPhoto-video" href="<?php the_sub_field('video_url') ?>"><img class="img-responsive img-thumbnail" src="<?php the_sub_field('video_imagem') ?>"></a>
+            </div>
+            <div class="entry-main col-sm-8">
+              <div class="entry-header clearfix">
+                <div class="entry-header__wrap">
+                  <h3 class="entry-title ui-title-inner"><?php the_sub_field('video_titulo') ?></h3>
+                  <div class="border-decor border-decor_mod-b"></div>
+                </div>
+              </div>
+              <div class="entry-content">
+                <p><?php the_sub_field('video_descricao') ?></p>
+              </div>
+            </div>
+          </article>
+          <?php endwhile;endif; ?>
         </div>
       </div>
     </div>
   </div>
 </div>
 <?php endif; ?>
-
-<section class="section-area section-bg-white wow">
-  <div class="title-w-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <h2 class="title-w-bg__inner">
-            <?php echo __('ICs', 'ccci'); ?>
-            <a class="btn btn-effect" href="<?php echo site_url('ics'); ?>"><?php echo __('Saiba mais', 'ccci'); ?></a>
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 ics-home">
-        <?php
-        $instituicoes = new WP_Query(array('post_type' => 'instituicoes', 'posts_per_page'=> -1, 'order' => 'ASC', 'orderby' => 'rand'));
-        ?>
-        <i class="fa fa-chevron-circle-left ic-nav-left"></i>
-        <i class="fa fa-chevron-circle-right ic-nav-right"></i>
-        <div class="col-xs-12">
-          <div class="col-sm-4 ics-home-col-1 row">
-            <figure class="ics-home-img">
-              <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
-                <span data-order="<?php echo $orderIC; ?>" class="<?php echo ($orderIC==1) ? 'active' : '' ?>" style="background-image: url(<?php the_field('ics_logotipo'); ?>);"></span>
-              <?php endwhile;endif; ?>
-            </figure>
-          </div>
-          <div class="col-sm-8 ics-home-content">
-            <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
-              <div data-order="<?php echo $orderIC; ?>" class="ics-home-desc <?php echo ($orderIC==1) ? 'active' : '' ?>">
-                <h3><a href="<?php the_field('ics_site'); ?>" target="_blank"><?php echo get_the_title() ?></a></h3>
-                <?php echo get_field('ics_nome') ?><br>
-                <p>
-                  <?php echo get_field('resumo_ic') ?><br>
-                  <a href="<?php the_field('ics_site'); ?>" target="_blank">Saiba mais</a>
-                </p>
-              </div>
-            <?php endwhile;endif; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<?php if (have_rows('video', 'option')): while(have_rows('video', 'option')): the_row(); ?>
-<section class="section-default section-bg-1 video-link wow">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <a class="prettyPhoto-video" href="<?php the_sub_field('video_url') ?>">
-          <div class="video-link__img"><img class="img-responsive" src="<?php the_sub_field('video_imagem') ?>"></div>
-        </a>
-      </div>
-
-      <div class="col-md-6">
-        <div class="video-link__wrap">
-          <h2 class="video-link__title"><?php echo __('ASSISTA O NOSSO VIDEO', 'ccci'); ?></h2>
-          <div class="video-link__description"><?php the_sub_field('video_titulo') ?></div>
-          <div class="border-decor border-decor_mod-a"></div>
-          <p class="video-link__text"><?php the_sub_field('video_descricao') ?></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<?php endwhile;endif; ?>
 
 <?php
 $projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> 8, 'orderby' => 'rand'));
@@ -200,8 +155,80 @@ if($projetos->have_posts()):
 </section>
 <?php endif; ?>
 
+<section class="section-area section-bg-white wow">
+  <div class="title-w-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="title-w-bg__inner">
+            <?php echo __('ICs', 'ccci'); ?>
+            <a class="btn btn-effect" href="<?php echo site_url('ics'); ?>"><?php echo __('Saiba mais', 'ccci'); ?></a>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 ics-home">
+        <?php
+        $instituicoes = new WP_Query(array('post_type' => 'instituicoes', 'posts_per_page'=> -1, 'order' => 'ASC', 'orderby' => 'rand'));
+        ?>
+        <i class="fa fa-chevron-circle-left ic-nav-left"></i>
+        <i class="fa fa-chevron-circle-right ic-nav-right"></i>
+        <div class="col-xs-12">
+          <div class="col-sm-4 ics-home-col-1 row">
+            <figure class="ics-home-img">
+              <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
+                <span data-order="<?php echo $orderIC; ?>" class="<?php echo ($orderIC==1) ? 'active' : '' ?>" style="background-image: url(<?php the_field('ics_logotipo'); ?>);"></span>
+              <?php endwhile;endif; ?>
+            </figure>
+          </div>
+          <div class="col-sm-8 ics-home-content">
+            <?php $orderIC = 0; if($instituicoes->have_posts()): while($instituicoes->have_posts()): $instituicoes->the_post(); $orderIC++;?>
+              <div data-order="<?php echo $orderIC; ?>" class="ics-home-desc <?php echo ($orderIC==1) ? 'active' : '' ?>">
+                <h3><a href="<?php the_field('ics_site'); ?>" target="_blank"><?php echo get_the_title() ?></a></h3>
+                <?php echo get_field('ics_nome') ?><br>
+                <p>
+                  <?php echo get_field('resumo_ic') ?><br>
+                  <a href="<?php the_field('ics_site'); ?>" target="_blank">Acessar site</a>
+                </p>
+              </div>
+            <?php endwhile;endif; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php /* if (have_rows('video', 'option')): while(have_rows('video', 'option')): the_row(); ?>
+<section class="section-default section-bg-1 video-link wow">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <a class="prettyPhoto-video" href="<?php the_sub_field('video_url') ?>">
+          <div class="video-link__img"><img class="img-responsive" src="<?php the_sub_field('video_imagem') ?>"></div>
+        </a>
+      </div>
+
+      <div class="col-md-6">
+        <div class="video-link__wrap">
+          <h2 class="video-link__title"><?php echo __('ASSISTA O NOSSO VIDEO', 'ccci'); ?></h2>
+          <div class="video-link__description"><?php the_sub_field('video_titulo') ?></div>
+          <div class="border-decor border-decor_mod-a"></div>
+          <p class="video-link__text"><?php the_sub_field('video_descricao') ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<?php endwhile;endif; */ ?>
+
+
+
 <?php
-$penseNisso = new WP_Query(array('post_type' => 'pensamentos', 'posts_per_page'=> -1));
+$penseNisso = new WP_Query(array('post_type' => 'pensamentos', 'posts_per_page'=> -1, 'orderby' => 'rand'));
 if($penseNisso->have_posts()):
 ?>
 <section class="section-area section-bg-1 wow" >
@@ -209,7 +236,7 @@ if($penseNisso->have_posts()):
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h2 class="title-w-bg__inner title-w-bg__inner_mod-a"><?php echo __('Pense nisso', 'ccci') ?></h2>
+          <h2 class="title-w-bg__inner title-w-bg__inner_mod-a"><?php echo __('Ortopensatas', 'ccci') ?></h2>
         </div>
       </div>
     </div>

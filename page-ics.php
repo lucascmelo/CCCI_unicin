@@ -41,7 +41,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       <div class="col-xs-8">
        <h4 class="ui-title-block title-tabela-ics">
         ICs (<?php echo $instituicoes->post_count; ?>)
-        <div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b wow">Ordem cronológica de fundação</div>
+        <div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b wow text-left">Listadas em ordem alfabética</div>
        </h4>
        <br>
        
@@ -78,7 +78,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         <section class="wow">
             <h4 class="ui-title-block text-uppercase text-center title-tabela-ics">
                 TIMELINE
-                <div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b wow text-center">Listadas em ordem alfabética</div>
+                
+                <div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b wow">Ordem cronológica de fundação</div>
             </h4>
             <br>
           <section id="cd-timeline" class="cd-container">

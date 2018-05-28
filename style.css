@@ -302,8 +302,3 @@ a img.aligncenter {
 		page-break-after:avoid;
 	}
 }
-
-
-.brek-word {
-	overflow-wrap: break-word;
-}

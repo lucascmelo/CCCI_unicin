@@ -120,7 +120,7 @@ function my_changerr( $translated_text, $text, $domain ) {
             case 'Voluntários' :
               $translated_text = __( 'Voluntários', 'ccci' );
               break;
-            case 'Mini-Peças do Maxi-Mecanismo' :
+            case 'Minipeças do Maximecanismo' :
               $translated_text = __( 'Mini-Peças do Maxi-Mecanismo', 'ccci' );
               break;
             case 'Tel.:' :
@@ -181,7 +181,7 @@ function navMain()
       'after'           => '',
       'link_before'     => '',
       'link_after'      => '',
-      'items_wrap'      => '<ul class="nav navbar-nav"><li><a href="'.site_url().'">Início</a></li>%3$s</ul>',
+      'items_wrap'      => '<ul class="nav navbar-nav">%3$s</ul>',
       'depth'           => 0,
       'walker' => new My_Walker_Nav_Menu()
       )
@@ -559,18 +559,18 @@ function create_post_type_custom()
     register_post_type('projetos',
         array(
         'labels' => array(
-            'name' => __('Projetos', 'projetos'),
-            'singular_name' => __('Projeto', 'projetos'),
+            'name' => __('Ferramentas de Autopesquisa', 'projetos'),
+            'singular_name' => __('Ferramentas de Autopesquisa', 'projetos'),
             'add_new' => __('Adicionar novo', 'projetos'),
-            'add_new_item' => __('Adicionar novo projeto', 'projetos'),
+            'add_new_item' => __('Adicionar novo', 'projetos'),
             'edit' => __('Editar', 'projetos'),
-            'edit_item' => __('Editar projeto', 'projetos'),
-            'new_item' => __('Novo projeto', 'projetos'),
+            'edit_item' => __('Editar', 'projetos'),
+            'new_item' => __('Novo', 'projetos'),
             'view' => __('Ver', 'projetos'),
-            'view_item' => __('Ver projeto', 'projetos'),
-            'search_items' => __('Procurar por Projetos', 'projetos'),
-            'not_found' => __('Nenhum projeto encontrada', 'projetos'),
-            'not_found_in_trash' => __('Nenhum projeto encontrada na lixeira', 'projetos')
+            'view_item' => __('Ver', 'projetos'),
+            'search_items' => __('Procurar por ...', 'projetos'),
+            'not_found' => __('Nenhum item encontrada', 'projetos'),
+            'not_found_in_trash' => __('Nenhum item encontrada na lixeira', 'projetos')
         ),
         'public' => true,
         'hierarchical' => false,
@@ -587,8 +587,8 @@ function create_post_type_custom()
     register_post_type('pensamentos',
         array(
         'labels' => array(
-            'name' => __('Pense Nisso', 'pensamentos'),
-            'singular_name' => __('Pense Nisso', 'pensamentos'),
+            'name' => __('Ortopensatas', 'pensamentos'),
+            'singular_name' => __('Ortopensatas', 'pensamentos'),
             'add_new' => __('Adicionar novo', 'pensamentos'),
             'add_new_item' => __('Adicionar novo', 'pensamentos'),
             'edit' => __('Editar', 'pensamentos'),

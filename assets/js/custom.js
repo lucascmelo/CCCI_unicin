@@ -149,12 +149,12 @@ $(document).ready(function() {
 
                     $('.yamm').addClass("animated");
                     $('.yamm').addClass("animation-done");
-                    $('.yamm').addClass("bounce");
+                    // $('.yamm').addClass("bounce");
                     $pageHeader.addClass('sticky');
 
                 } else {
 
-                    $('.yamm').removeClass("bounce");
+                    // $('.yamm').removeClass("bounce");
                     $('.yamm').removeClass("animated");
                     $('.yamm').removeClass("animation-done");
                     $pageHeader.removeClass('sticky');

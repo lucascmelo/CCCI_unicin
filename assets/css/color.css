@@ -28,7 +28,7 @@ a.btn-read-more.btn,
 .list-mark > li:before,
 .list-mark_mod-a > li:before,
 .list-mark_mod-b > li:hover:before {
-	color:#262d79;
+	color:#1A4482;
 }
 
 
@@ -58,7 +58,7 @@ a.btn-read-more.btn,
 .pagination > li > a:focus,
 .pagination > li > span:focus,
 .flex-direction-nav a:hover {
-	background-color: #262d79;
+	background-color: #1A4482;
 }
 
 
@@ -71,6 +71,8 @@ a.btn-read-more.btn,
 .footer__title:after,
 .header_mod-a .yamm .nav > li > a:hover,
 .header_mod-b .yamm .nav > li > a:hover,
+.header_mod-b .yamm .nav > li.current_page_item > a,
+.header_mod-b .yamm .nav > li.current-menu-parent > a,
 .isotope__item .btn,
 .filter-isotope_mod-a .filter-isotope__item:hover,
 .filter-isotope_mod-a .filter-isotope__item.current,
@@ -83,33 +85,33 @@ a.btn-read-more.btn,
 .pagination > li > a:focus,
 .pagination > li > span:focus,
 .flex-direction-nav a:hover {
-	border-color: #262d79;
+	border-color: #1A4482;
 }
 
 .list-mark_mod-a li:hover,
 .list-mark_mod-a li.list-mark-active,
 .cart-project:after,
 .post blockquote {
-	border-left-color: #262d79;
+	border-left-color: #1A4482;
 }
 
 .border-top,
 .cart-project:before {
-	border-top-color: #262d79;
+	border-top-color: #1A4482;
 }
 
 .cart-project:before {
-	border-right-color: #262d79;
+	border-right-color: #1A4482;
 }
 
 .cart-project:after {
-	border-bottom-color: #262d79;
+	border-bottom-color: #1A4482;
 }
 
 
 
 @media (max-width:767px) {
 	.header_mod-b .yamm {
-		background-color: #262d79;
+		background-color: #1A4482;
 	}
 }

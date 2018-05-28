@@ -3,6 +3,16 @@
 if ( have_posts() ) : while ( have_posts() ) : the_post();
  $ancestorsID = get_ancestors(get_the_ID(), 'page');
  $ancestorsID = $ancestorsID[0];
+
+ if (get_field('url_redirect')) {
+ 	wp_redirect(get_field('url_redirect'));
+ 	echo '<script type="text/javascript">window.location = "'.get_field('url_redirect').'"</script>';
+ 	exit;
+ }
+ if (get_field('pagina_redirect')) {
+	echo '<script type="text/javascript">window.location = "'.get_field('pagina_redirect').'"</script>';
+	exit;
+ }
 ?>
 <div class="section-title section-bg">
 	<div class="container">
@@ -48,7 +58,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 						</ul>
 					</div>
 				</div>
-				<?php if($ancestorsID == get_id_by_slug('unicin')): ?>
+				<?php if(1==2 && $ancestorsID == get_id_by_slug('unicin')): ?>
 				<div class="widget">
 					<div class="widget-content">
 						<?php $estatuto = get_field('estatuto', 'option'); ?>
@@ -64,13 +74,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 		<div class="col-md-9 block-conteudo-principal">
 			<section class="section-default wow">
-				<h2 class="ui-title-block text-uppercase text-center"><?php echo the_field('page_titulo_principal'); ?></h2>
+				<h2 class="ui-title-block text-center"><?php echo the_field('page_titulo_principal'); ?></h2>
 				<?php
 				$subTitle = get_field('page_subtitulo');
-				if (!empty($subTitle)) {
 				?>
-				<div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b text-center wow"><?php echo $subTitle; ?></div>
-				<?php } ?>
+				<div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b text-center wow"><?php echo ($subTitle) ? $subTitle : '&nbsp;'; ?></div>
 
 				<?php the_content(); ?>
 
@@ -95,6 +103,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	</div>
 </div>
 <?php if($ancestorsID == get_id_by_slug('unicin')): ?>
+<?php if (1==2): ?>
 <div class="section-progress no-bg-color-parallax parallax-yellow wow" id="charstart">
 	<ul class="bg-slideshow">
 		<li>
@@ -158,6 +167,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 
 <div class="section-area wow">
 	<div class="container">
@@ -165,7 +175,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 			<div class="col-xs-12">
 				<section class="section-default border-top">
 					<h2 class="ui-title-block text-center"><?php echo __('Voluntários', 'ccci'); ?></h2>
-					<div class="ui-subtitle-block text-center"><?php echo __('Mini-Peças do Maxi-Mecanismo', 'ccci'); ?></div>
+					<div class="ui-subtitle-block text-center"><?php echo __('Minipeças do Maximecanismo', 'ccci'); ?></div>
 					<div class="carousel_mod-b owl-carousel owl-theme enable-owl-carousel"
 					data-min480="1"
 					data-min768="2"
