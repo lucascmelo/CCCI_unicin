@@ -5,7 +5,7 @@
   data-slider-height="650">
   <div class="sp-slides">
     <?php while ( have_rows('banner', 'option') ) : the_row(); ?>
-    <div class="sp-slide" href="###">
+    <div class="sp-slide">
       <?php if (get_sub_field('link_banner')): ?>
       <a href="<?php the_sub_field('link_banner') ?>" target="_blank">
       <?php endif ?>
@@ -13,7 +13,8 @@
 
         <h1 class="main-slider__title sp-layer"
             data-horizontal="13vw"
-            data-vertical="35%"
+            data-vertical="30%"
+            data-width="60%"
             data-show-transition="up"
             data-hide-transition="left"
             data-show-duration="800"
@@ -22,18 +23,24 @@
             <?php echo the_sub_field('banner_titulo'); ?>
         </h1>
 
-        <div class="main-slider__text sp-layer hidden-xs"
+        <div class="main-slider__text sp-layer"
             data-horizontal="13vw"
-            data-vertical="50%"
+            data-vertical="45%"
             data-height="30%"
-            data-width="35%"
+            data-width="60%"
             data-show-transition="up"
             data-hide-transition="left"
             data-show-duration="800"
             data-show-delay="1200"
             data-hide-delay="1200">
-            <p class="main-slider__text"><?php echo the_sub_field('banner_subtitulo'); ?></p>
+            <p class="main-slider__text">
+              <?php echo the_sub_field('banner_subtitulo'); ?>
+            </p>
             <div class="border-decor border-decor_mod-a"></div>
+            <?php if (get_sub_field('link_banner')): ?>
+            <br>
+            <span class="btn btn-primary btn-effect"><?php the_field('mais_detalhes', 'option'); ?></span>
+            <?php endif ?>
         </div>
       <?php if (get_sub_field('link_banner')): ?>
       </a>
@@ -114,55 +121,14 @@
 </div>
 <?php endif; ?>
 
-<?php
-$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> 8, 'orderby' => 'rand'));
-if($projetos->have_posts()):
-?>
-<section class="section-area wow">
-  <div class="title-w-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <h2 class="title-w-bg__inner">
-            <?php echo __('Ferramentas de Autopesquisa', 'ccci'); ?>
-            <a class="btn btn-effect" href="<?php echo site_url('projetos'); ?>"><?php echo __('Saiba mais', 'ccci'); ?></a>
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="isotope-frame">
-    <div class="isotope-filter">
-      <?php
-       while ( $projetos->have_posts() ) : $projetos->the_post();
-        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'bg-projetos');
-        $link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
-        $blank = (get_field('projetos_link_externo')) ? '_blank' : '';
-      ?>
-      <div class="isotope-item item-project">
-        <img src="<?php echo $thumb; ?>">
-        <div class="isotope__hover" style="opacity: 1">
-          <div class="isotope__inner">
-            <h3 class="isotope__title"><?php the_title(); ?></h3>
-            <a class="btn btn-default btn-effect" href="<?php echo $link; ?>" target="<?php echo $blank; ?>"><?php echo __('mais detalhes', 'ccci'); ?></a>
-          </div>
-        </div>
-      </div>
-      <?php endwhile; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<section class="section-area section-bg-white wow">
+<section class="section-area section-bg-white">
   <div class="title-w-bg">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
           <h2 class="title-w-bg__inner">
-            <?php echo __('ICs', 'ccci'); ?>
-            <a class="btn btn-effect" href="<?php echo site_url('ics'); ?>"><?php echo __('Saiba mais', 'ccci'); ?></a>
+            ICs
+            <a class="btn btn-effect" href="<?php echo site_url('ics'); ?>"><?php the_field('saiba_mais', 'option') ?></a>
           </h2>
         </div>
       </div>
@@ -191,7 +157,7 @@ if($projetos->have_posts()):
                 <?php echo get_field('ics_nome') ?><br>
                 <p>
                   <?php echo get_field('resumo_ic') ?><br>
-                  <a href="<?php the_field('ics_site'); ?>" target="_blank">Acessar site</a>
+                  <a href="<?php the_field('ics_site'); ?>" target="_blank"><?php the_field('acessar_site', 'option') ?></a>
                 </p>
               </div>
             <?php endwhile;endif; ?>
@@ -201,6 +167,49 @@ if($projetos->have_posts()):
     </div>
   </div>
 </section>
+
+<?php
+$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> 8, 'orderby' => 'rand'));
+if($projetos->have_posts()):
+?>
+<section class="section-area wow">
+  <div class="title-w-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2 class="title-w-bg__inner">
+            <?php the_field('ferramentas_de_autopesquisa', 'option'); ?>
+            <a class="btn btn-effect" href="<?php echo site_url('projetos'); ?>"><?php the_field('saiba_mais', 'option'); ?></a>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="isotope-frame">
+    <div class="isotope-filter">
+      <?php
+       while ( $projetos->have_posts() ) : $projetos->the_post();
+        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'bg-projetos');
+        $link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
+        $blank = (get_field('projetos_link_externo')) ? '_blank' : '';
+      ?>
+      <div class="isotope-item item-project">
+        <img src="<?php echo $thumb; ?>">
+        <div class="isotope__hover" style="opacity: 1">
+          <div class="isotope__inner">
+            <h3 class="isotope__title"><?php the_title(); ?></h3>
+            <a class="btn btn-default btn-effect" href="<?php echo $link; ?>" target="<?php echo $blank; ?>"><?php the_field('mais_detalhes', 'option'); ?></a>
+          </div>
+        </div>
+      </div>
+      <?php endwhile; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+
 
 <?php /* if (have_rows('video', 'option')): while(have_rows('video', 'option')): the_row(); ?>
 <section class="section-default section-bg-1 video-link wow">
@@ -236,7 +245,7 @@ if($penseNisso->have_posts()):
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h2 class="title-w-bg__inner title-w-bg__inner_mod-a"><?php echo __('Ortopensatas', 'ccci') ?></h2>
+          <h2 class="title-w-bg__inner title-w-bg__inner_mod-a"><?php the_field('ortopensatas', 'option') ?></h2>
         </div>
       </div>
     </div>

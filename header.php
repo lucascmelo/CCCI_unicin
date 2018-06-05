@@ -28,7 +28,7 @@
               <div class="col-xs-12">
                 <div class="top-header__info">
                   <ul class="social-links list-inline">
-                    <li><a target="_blank" href="<?php echo site_url('wp-admin') ?>"><?php echo __('Acesso Restrito', 'ccci'); ?></a></li>
+                    <li><a target="_blank" href="<?php echo site_url('wp-admin') ?>"><?php the_field('acesso_restrito', 'option') ?></a></li>
                   </ul>
                 </div>
                 <div class="header-language btn-group">
@@ -51,7 +51,7 @@
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-md-3 col-xs-12"><a href="<?php echo home_url(); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo-new.png" alt="logo"></a></div>
+            <div class="col-md-3 col-xs-12"><a href="<?php echo home_url(); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo.png" alt="logo"></a></div>
             <div class="col-md-9 col-xs-12">
               <div class="main-navig">
                 <div class="navbar yamm">
@@ -77,11 +77,11 @@
                         <div class="form-group">
                           <input type="text" class="form-control" placeholder="Pesquisar por...">
                         </div>
-                        <button class="btn_search btn btn-primary btn-effect"><?php echo __('Buscar', 'ccci') ?></button>
+                        <button class="btn_search btn btn-primary btn-effect"><?php the_field('buscar', 'option') ?></button>
                       </form>
                     </div>
 
-                    <a href="<?php echo home_url(); ?>" class="logo pull-left"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-new.png" alt="logo"></a>
+                    <a href="<?php echo home_url(); ?>" class="logo pull-left"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"></a>
                     <?php navMain(); ?>
                   </nav>
                 </div>

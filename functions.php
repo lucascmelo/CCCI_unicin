@@ -31,7 +31,7 @@ function my_changerr( $translated_text, $text, $domain ) {
     if ( is_singular() ) {
         switch ( $translated_text ) {
             case 'Página não encontrada.' :
-              $translated_text = __( 'Page not found.', 'ccci' );
+              $translated_text = __( get_field('pagina_nao_encontrada', 'option'), 'ccci' );
               break;
             case 'Voltar para a página inicial.' :
               $translated_text = __( 'Back to home.', 'ccci' );
@@ -162,7 +162,15 @@ if( function_exists('acf_add_options_page') ) {
     )
   );
 
-
+  $option_pageTraducoes = acf_add_options_page(
+    array(
+      'page_title'    => 'Traduções',
+      'menu_title'    => 'Traduções',
+      'menu_slug'     => 'traducoes',
+      'capability'    => 'edit_posts',
+      'redirect'  => false
+    )
+  );
 }
 
 

@@ -27,14 +27,18 @@
 }
 
 .section-title {
-	background: url("../img/banner-sobre.jpg");
-	background-size: cover;
+	background-image: url("../img/banner-sobre.jpg");
+	background-size: contain;
+	background-position: 0 0;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: #000c29;
 }
 
 .section-bg {
 	position: relative;
 	margin-top: -13px;
-	padding: 103px 0 77px;
+	padding: 40px 0 50px;
 }
 .section-bg:after {
 	position: absolute;

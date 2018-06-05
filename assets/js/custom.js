@@ -30,52 +30,6 @@
 $(document).ready(function() {
 
     "use strict";
-
-
-    jQuery('.ics-home i').on('click', function(event) {
-        event.preventDefault();
-        var _this = jQuery(this),
-        activeIMG = jQuery('.ics-home-img .active'),
-        activeContent = jQuery('.ics-home-content .active');
-
-        activeIMG.removeClass('active');
-        activeContent.removeClass('active');
-        
-        if (jQuery(this).hasClass('ic-nav-left')) {
-            if (activeContent.index() == 0) {
-                jQuery('.ics-home-img span').last().addClass('active');
-                jQuery('.ics-home-desc').last().addClass('active');
-            }else{
-                activeIMG.prev().addClass('active');
-                activeContent.prev().addClass('active');
-            }
-        } else {
-            if ((jQuery('.ics-home-desc').length -1) == activeContent.index()) {
-                jQuery('.ics-home-img span').eq(0).addClass('active');
-                jQuery('.ics-home-desc').eq(0).addClass('active');
-            }else{
-                activeIMG.next().addClass('active');
-                activeContent.next().addClass('active');    
-            }
-            
-        }
-    });
-
-
-    // var cycleIcs = setInterval(function(){
-    //     jQuery('.ics-home .ic-nav-right').trigger('click');
-    // },3000);
-
-    // jQuery('.ics-home').on('mouseenter', function(event) {
-    //     clearInterval(cycleIcs);
-    // });
-
-    // jQuery('.ics-home').on('mouseleave', function(event) {
-    //     cycleIcs = setInterval(function(){
-    //     jQuery('.ics-home-img .ic-nav-right').trigger('click');
-    // },3000);
-    // });
-
 /////////////////////////////////////////////////////////////////
 // Contato
 /////////////////////////////////////////////////////////////////
@@ -576,5 +530,63 @@ $( '.navbar-nav li:has(ul)' ).doubleTapToGo();
             ( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
         });
     }
+
+    var flagIcsHome = true;
+    jQuery('.ics-home i').on('click', function(event) {
+        event.preventDefault();
+        var _this = jQuery(this),
+        activeIMG = jQuery('.ics-home-img .active'),
+        activeContent = jQuery('.ics-home-content .active');
+
+        if (flagIcsHome) {
+            var icsHomeHight = [],
+            icsHomeDesc      = jQuery('.ics-home-desc'),
+            icsHomeDescLen   = icsHomeDesc.length-1;
+            icsHomeDesc.each(function(index, value){
+                icsHomeHight.push(jQuery(this).height());
+                if (index == icsHomeDescLen) {
+                    icsHomeDesc.height(Math.max.apply(null, icsHomeHight));
+                }
+            });
+
+            flagIcsHome = false;
+        }
+
+        activeIMG.removeClass('active');
+        activeContent.removeClass('active');
+        
+        if (jQuery(this).hasClass('ic-nav-left')) {
+            if (activeContent.index() == 0) {
+                jQuery('.ics-home-img span').last().addClass('active');
+                jQuery('.ics-home-desc').last().addClass('active');
+            }else{
+                activeIMG.prev().addClass('active');
+                activeContent.prev().addClass('active');
+            }
+        } else {
+            if ((jQuery('.ics-home-desc').length -1) == activeContent.index()) {
+                jQuery('.ics-home-img span').eq(0).addClass('active');
+                jQuery('.ics-home-desc').eq(0).addClass('active');
+            }else{
+                activeIMG.next().addClass('active');
+                activeContent.next().addClass('active');    
+            }
+        }
+    });
+
+
+    var cycleIcs = setInterval(function(){
+        jQuery('.ics-home .ic-nav-right').trigger('click');
+    },3000);
+
+    jQuery('.ics-home').on('mouseenter', function(event) {
+        clearInterval(cycleIcs);
+    });
+
+    jQuery('.ics-home').on('mouseleave', function(event) {
+        cycleIcs = setInterval(function(){
+            jQuery('.ics-home-img .ic-nav-right').trigger('click');
+        },3000);
+    });
 });
 

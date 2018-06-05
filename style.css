@@ -302,3 +302,7 @@ a img.aligncenter {
 		page-break-after:avoid;
 	}
 }
+
+.owl-height {
+	height: 1300px!important;
+}

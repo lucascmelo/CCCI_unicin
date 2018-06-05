@@ -174,8 +174,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 		<div class="row">
 			<div class="col-xs-12">
 				<section class="section-default border-top">
-					<h2 class="ui-title-block text-center"><?php echo __('Voluntários', 'ccci'); ?></h2>
-					<div class="ui-subtitle-block text-center"><?php echo __('Minipeças do Maximecanismo', 'ccci'); ?></div>
+					<h2 class="ui-title-block text-center"><?php the_field('voluntarios_translate', 'option'); ?></h2>
+					<div class="ui-subtitle-block text-center"><?php the_field('minipecas_do_maximecanismo', 'option'); ?></div>
 					<div class="carousel_mod-b owl-carousel owl-theme enable-owl-carousel"
 					data-min480="1"
 					data-min768="2"

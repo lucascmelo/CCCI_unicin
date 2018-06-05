@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<section class="footer__section">
-						<h3 class="footer__title"><?php echo __('Informações de Contato', 'ccci') ?></h3>
+						<h3 class="footer__title"><?php the_field('informacoes_de_contato','option') ?></h3>
 						<div class="row">
 							<div class="col-sm-12">
 								<ul class="list-contacts">
@@ -48,7 +48,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<div class="copyright">© <?php echo date('Y').' '.__('Todos os direitos reservados', 'ccci'); ?>.</div>
+						<div class="copyright">© <?php echo date('Y').' '.get_field('todos_os_direitos_reservados', 'option'); ?>.</div>
 					</div>
 				</div>
 			</div>

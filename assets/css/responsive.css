@@ -336,7 +336,8 @@
 		width: 130px;
 	}
 	.main-slider__title {
-		font-size: 25px;
+		font-size: 14px;
+		top: 15%!important;
 	}
 	.isotope-item {
 		width: 100%;
