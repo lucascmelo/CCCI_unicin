@@ -5,10 +5,10 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="section__inner">
-						<h1 class="ui-title-page"><?php the_field('ferramentas_de_autopesquisa'); ?></h1>
+						<h1 class="ui-title-page"><?php the_field('ferramentas_de_autopesquisa', 'option'); ?></h1>
 						<ol class="breadcrumb">
 							<li><a href="<?php echo site_url(); ?>">Home</a></li>
-							<li class="active"><?php the_field('ferramentas_de_autopesquisa'); ?></li>
+							<li class="active"><?php the_field('ferramentas_de_autopesquisa', 'option'); ?></li>
 						</ol>
 					</div>
 				</div>

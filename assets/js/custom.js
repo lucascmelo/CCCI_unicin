@@ -338,6 +338,7 @@ $( '.navbar-nav li:has(ul)' ).doubleTapToGo();
             $( '#banner' ).sliderPro({
                 width:  sliderWidth,
                 height: sliderHeigth,
+                autoplayDelay: 8000,
                 fade: true,
                 arrows: true,
                 buttons: false,
@@ -345,7 +346,13 @@ $( '.navbar-nav li:has(ul)' ).doubleTapToGo();
                 thumbnailPointer: false,
                 touchSwipe: false,
                 autoplay: true,
-                autoScaleLayers: false
+                autoScaleLayers: false,
+                breakpoints: {
+                    768: {
+                        width:  true,
+                        height: true
+                    },
+                }
             });
     }
 
