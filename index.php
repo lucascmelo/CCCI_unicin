@@ -179,7 +179,7 @@ if($projetos->have_posts()):
         <div class="col-md-5">
           <h2 class="title-w-bg__inner">
             <?php the_field('ferramentas_de_autopesquisa', 'option'); ?>
-            <a class="btn btn-effect" href="<?php echo site_url('projetos'); ?>"><?php the_field('saiba_mais', 'option'); ?></a>
+            <a class="btn btn-effect" href="<?php echo site_url('autopesquisologia'); ?>"><?php the_field('saiba_mais', 'option'); ?></a>
           </h2>
         </div>
       </div>

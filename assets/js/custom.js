@@ -146,20 +146,31 @@ $(document).ready(function() {
 $(".dropdown").on("hover", function(e) {
   if(e.type == "mouseenter") {
     $('.dropdown-menu', this).fadeIn("fast");
-  }
-  else if (e.type == "mouseleave") {
+  } else if (e.type == "mouseleave") {
     $('.dropdown-menu', this).fadeOut("fast");
   }
 });
 
 
+$(".yamm .navbar-nav>li").off("hover");
 $(".yamm .navbar-nav>li").on("hover", function(e) {
+    var _this = jQuery(this);
+
   if(e.type == "mouseenter") {
-    $('.dropdown-menu', this).fadeIn("fast");
-  }
-  else if (e.type == "mouseleave") {
+    _this.find('.dropdown-menu').first().fadeIn("fast");
+  } else if (e.type == "mouseleave") {
     $('.dropdown-menu', this).fadeOut("fast");
   }
+});
+
+$(".navbar-nav .dropdown-menu > li").off("hover");
+$(".navbar-nav .dropdown-menu > li").on("hover", function(e) {
+    var _this = jQuery(this);
+    if(e.type == "mouseenter") {
+      _this.find('.dropdown-menu').fadeIn("fast");
+    } else if (e.type == "mouseleave") {
+      _this.find('.dropdown-menu').fadeOut("fast");
+    }
 });
 
 

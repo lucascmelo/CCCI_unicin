@@ -31,6 +31,10 @@ body {
 	font-size: 14px;
 }
 
+img {
+	max-width: 100%;
+}
+
 /* ======= GLOBAL ======= */
 
 	select:focus {
@@ -834,6 +838,17 @@ body {
 		top: 90px;
 	}
 
+	.menu-item {
+		position: relative;
+	}
+
+	.menu-item .dropdown-menu .dropdown-menu {
+		top: 0;
+		border:0;
+		border-radius: 0;
+		left: 100%;
+	}
+
 
 	/* Search Modal */
 
@@ -1177,12 +1192,23 @@ body {
 		transition: all .3s;
 		border-bottom: 1px solid #eee;
 	}
+
+	.list-mark_mod-a > li.child-sub {
+		padding-left: 65px;
+	}
+	
+
 	.list-mark_mod-a > li:before {
 		color: #999;
 		top: 15px;
 		left: 17px;
 		transition: all .3s;
 	}
+
+	.list-mark_mod-a > li.child-sub:before {
+		left: 30px;
+	}
+
 	.list-mark_mod-a > li > a {
 		padding-top: 15px;
 		padding-bottom: 16px;
@@ -1234,11 +1260,17 @@ body {
 	.advantages__description {
 	}
 
+	.volutarios-item.staff {
+		width: 100%;
+		margin-bottom: 25px;
+		display: inline-block;
+	}
 
 	.staff {
 		text-align: center;
 	}
 	.staff__img {
+		max-width: 100%;
 		width: 270px;
 		height: 220px;
 		background: no-repeat center center;
@@ -1286,6 +1318,15 @@ body {
 		display: block;
 		margin-top: 25px;
 	}
+
+
+	.volutarios-item .staff__name {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 20px 15px;
+		background-color: #f1f0f0;
+	}
+
 
 	.banner {
 		padding-left: 54px;
@@ -2308,6 +2349,34 @@ body {
 	z-index: 3;
 }
 
+@media (max-width: 767px) {
+  #banner .main-slider__text,
+  #banner .main-slider__text p {
+  	font-size: 14px;
+  }
+
+  #banner .main-slider__text p {
+  	margin-bottom: 0;
+  }
+
+  #banner .btn.btn-primary.btn-effect {
+  	font-size: 12px;
+  	padding: 10px;
+  }
+
+  #banner .main-slider__text .border-decor {
+  	margin-top: 10px;
+  }
+}
+
 .section-title .ui-title-page {
 	text-transform: unset;
+}
+
+.ferramentas-de-autopesquisa .post .entry-header {
+	margin-bottom: 0;
+}
+
+.ferramentas-de-autopesquisa .ui-title-inner + .border-decor {
+	margin-bottom: 10px;
 }

@@ -3,6 +3,7 @@
 if ( have_posts() ) : while ( have_posts() ) : the_post();
  $ancestorsID = get_ancestors(get_the_ID(), 'page');
  $ancestorsID = $ancestorsID[0];
+ $ancestorsIDFirst = $ancestorsID;
 
  if (get_field('url_redirect')) {
  	wp_redirect(get_field('url_redirect'));
@@ -38,7 +39,12 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 					<div class="widget-content">
 						<?php
 						$subpages = array();
-						if ($ancestorsID==NULL) {
+						$ancestorsID = get_ancestors($ancestorsID, 'page');
+						$ancestorsID = $ancestorsID[0];
+						
+						$ancestorsID = ($ancestorsID==null) ? $ancestorsIDFirst : $ancestorsID;
+						if ($ancestorsIDFirst==NULL) {
+
 							$subpages = get_pages(array(
 								'child_of' => get_the_ID(),
 								'parent ' => get_the_ID(),
@@ -53,7 +59,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 						?>
 						<ul class="list-widget list-mark list-mark_mod-a">
 							<?php foreach ($subpages as $page): ?>
-							<li class='<?php echo (is_page($page->ID)) ? "list-mark-active" : ""; ?>'><a href="<?php echo $page->guid;?>"><?php echo $page->post_title;?></a></li>
+								<?php 
+								$childOfSubPage = get_ancestors($page->ID, 'page');
+								$childOfSubPageClass = "";
+								if ($childOfSubPage[0] != $ancestorsID) {
+									$childOfSubPageClass = 'child-sub';
+								}
+								?>
+								
+							<li class='<?php echo (is_page($page->ID)) ? "list-mark-active " : ""; echo $childOfSubPageClass; ?>'><a href="<?php echo $page->guid;?>"><?php echo $page->post_title;?></a></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
@@ -99,6 +113,42 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 					?>
 				</div>
 			</section>
+
+			<?php if (is_page('autopesquisologia')): ?>
+				<!-- <div class="row"> -->
+					<!-- <div class="col-md-12 block-conteudo-principal"> -->
+						<section class="wow ferramentas-de-autopesquisa">
+							<div class="ui-subtitle-block ui-subtitle-block_mod-a ui-subtitle-block_mod-b text-center wow"><?php the_field('ferramentas_de_autopesquisa', 'option'); ?></div>
+							<?php 
+							$projetos = new WP_Query(array('post_type' => 'projetos', 'posts_per_page'=> -1, 'orderby' => 'rand', 'order' => 'ASC'));
+
+							if ( $projetos->have_posts() ) : while ( $projetos->have_posts() ) : $projetos->the_post(); 
+								$thumb = get_the_post_thumbnail_url(get_the_ID(), 'bg-projetos');
+								$link  = (get_field('projetos_link_externo')) ? get_field('projetos_link_externo') : get_permalink();
+								$blank = (get_field('projetos_link_externo')) ? '_blank' : '';
+								?>
+								<div class="col-md-3 col-sm-6 col-xs-12">
+									<article class="post post_mod-f clearfix wow">
+										<div class="entry-main">
+											
+											<div class="entry-media">
+												<a href="<?php echo $link; ?>">
+													<img class="img-responsive" src="<?php echo $thumb; ?>">
+												</a>
+											</div>
+											<div class="entry-header clearfix">
+												<h3 class="entry-title ui-title-inner"><a href="<?php echo $link ?>" target="<?php echo $blank; ?>"><?php the_title(); ?></a></h3>
+												<div class="border-decor border-decor_mod-b"></div>
+											</div>
+											<a class="link" href="<?php echo $link; ?>" target="<?php echo $blank ?>">Saiba mais</a>
+										</div>
+									</article>
+								</div>
+							<?php endwhile;endif;?>
+						</section>
+					<!-- </div> -->
+				<!-- </div> -->
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
@@ -172,7 +222,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 <div class="section-area wow">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<?php /* ?>
+			<div class="col-xs-12 hide">
 				<section class="section-default border-top">
 					<h2 class="ui-title-block text-center"><?php the_field('voluntarios_translate', 'option'); ?></h2>
 					<div class="ui-subtitle-block text-center"><?php the_field('minipecas_do_maximecanismo', 'option'); ?></div>
@@ -206,6 +257,32 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 						?>
 					</div>
 				</section>
+			</div>
+			<?php */ ?>
+			<div class="col-xs-12">
+				<h2 class="ui-title-block text-center"><?php the_field('voluntarios_translate', 'option'); ?></h2>
+				<div class="ui-subtitle-block text-center"><?php the_field('minipecas_do_maximecanismo', 'option'); ?></div>
+				<?php
+						if( have_rows('voluntarios', 'option') ):
+							while ( have_rows('voluntarios', 'option') ) :
+								the_row();
+						?>
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<section class="staff volutarios-item">
+								<div class="staff__img" style="background-image: url(<?php the_sub_field('voluntario_foto', 'option') ?>)">
+									<div class="staff__inner">
+										<div class="staff__description"><?php the_sub_field('voluntario_descricao', 'option') ?></div>
+										<span class="staff__contacts"></span>
+									</div>
+								</div>
+								<h3 class="staff__name ui-title-inner"><?php the_sub_field('voluntario_nome', 'option') ?></h3>
+								<div class="staff__categories"></div>
+							</section>
+						</div>
+						<?php
+							endwhile;
+						endif;
+						?>
 			</div>
 		</div>
 	</div>
