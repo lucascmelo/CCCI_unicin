@@ -595,7 +595,7 @@ $( '.navbar-nav li:has(ul)' ).doubleTapToGo();
 
     var cycleIcs = setInterval(function(){
         jQuery('.ics-home .ic-nav-right').trigger('click');
-    },3000);
+    },5000);
 
     jQuery('.ics-home').on('mouseenter', function(event) {
         clearInterval(cycleIcs);
@@ -604,7 +604,7 @@ $( '.navbar-nav li:has(ul)' ).doubleTapToGo();
     jQuery('.ics-home').on('mouseleave', function(event) {
         cycleIcs = setInterval(function(){
             jQuery('.ics-home-img .ic-nav-right').trigger('click');
-        },3000);
+        },5000);
     });
 });
 

@@ -49,11 +49,16 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								'child_of' => get_the_ID(),
 								'parent ' => get_the_ID(),
 								'hierarchical' => 0,
-								'sort_column' => 'menu_order',
+								// 'sort_column' => 'menu_order',
+								'sort_column' => 'post_name',
 								'sort_order' => 'asc'
 							));
 						}else{
-							$subpages = get_pages(array('child_of' => $ancestorsID, 'sort_column' => 'menu_order'));
+							$subpages = get_pages(array(
+								'child_of' => $ancestorsID, 
+								'sort_column' => 'menu_order'
+								// 'sort_column' => 'post_name'
+							));
 						}
 
 						?>

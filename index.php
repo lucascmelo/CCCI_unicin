@@ -261,7 +261,7 @@ if($penseNisso->have_posts()):
         data-min1200="2"
         data-pagination="false"
         data-navigation="true"
-        data-auto-play="4000"
+        data-auto-play="10000"
         data-stop-on-hover="true">
           <?php while($penseNisso->have_posts()): $penseNisso->the_post(); ?>
           <div class="reviews">

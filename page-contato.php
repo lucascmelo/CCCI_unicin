@@ -44,7 +44,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="col-md-5">
 								<input class="form-control" type="text" name="name" placeholder="<?php the_field('nome_translate', 'option') ?>" required>
 								<input class="form-control" type="email" name="email" placeholder="Email" required>
-								<input class="form-control" type="tel" name="phone" placeholder="<?php the_field('telefone', 'option') ?>">
+								<input class="form-control" type="tel" name="phone" placeholder="<?php the_field('telefone_translate', 'option') ?>">
 							</div>
 							<div class="col-md-7">
 								<textarea class="form-control" name="message" placeholder="<?php the_field('mensagem_translate', 'option') ?>" rows="11" required></textarea>
@@ -56,7 +56,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="form-contact__info text-danger hide"><?php the_field('aconteceu_algum_problema_por_favor_tente_mais_tarde', 'option') ?></div>
 							</div>
 							<div class="col-sm-3">
-								<button class="btn btn-primary btn-effect pull-right"><?php the_field('enviar'); ?></button>
+								<button class="btn btn-primary btn-effect pull-right"><?php the_field('enviar', 'option'); ?></button>
 							</div>
 						</div>
 					</form>

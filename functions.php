@@ -461,7 +461,7 @@ class Contato {
 
             ob_end_clean();
 
-            var_dump(wp_mail($to, $subject, $message, $headers));
+            // var_dump(wp_mail($to, $subject, $message, $headers));
             $mail = wp_mail($to, $subject, $message, $headers);
 
             if($mail){

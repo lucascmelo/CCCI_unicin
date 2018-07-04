@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <meta name="description" content="<?php bloginfo('description'); ?>">
-    <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
-
+    <meta name="description" content="É a associação de pessoas físicas e jurídicas com interesses em comum, de caráter educacional, científico, multidimensional, transnacional, sem fins de lucro, interassistencial e universalista, regida por estatuto específico e pelas normas legais pertinentes, fundada em Foz do Iguaçu, em 22 de janeiro de 2005, com o objetivo de promover a integração da Comunidade Conscienciológica Cosmoética Internacional (CCCI) favorecendo a maxiproéxis grupal.">
+    <title>UNICIN - UNIÃO DAS INSTITUIÇÕES CONSCIENCIOCÊNTRICAS INTERNACIONAIS</title>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-117352638-3', 'auto');
+    ga('send', 'pageview');
+    </script>
     <?php wp_head(); ?>
 
     <link href="<?php echo get_template_directory_uri(); ?>/assets/css/master.css" rel="stylesheet">
@@ -40,10 +47,6 @@
                   <button type="button" class="header-language__btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img alt="<?php echo $q_config['language'] ?>" src="<?php echo $flag_location.$q_config['flag'][$language]; ?>"> <span class="caret"></span></button>
                   <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
-                  <!-- <ul class="language-list dropdown-menu list-unstyled" role="menu">
-                    <li class="language-list__item"><a class="header-language__link" href="<?php //echo home_url('/') ?>"><img src="<?php //echo plugins_url(); ?>/qtranslate-x/flags/br.png" alt="PT"></a></li>
-                    <li class="language-list__item"><a class="header-language__link" href="<?php //echo home_url() ?>/en"><img src="<?php //echo plugins_url(); ?>/qtranslate-x/flags/gb.png" alt="EN"></a></li>
-                  </ul> -->
                 </div>
               </div>
             </div>
@@ -55,6 +58,7 @@
             <div class="col-md-9 col-xs-12">
               <div class="main-navig">
                 <div class="navbar yamm">
+                  <?php /* ?>
                   <a class="btn_header_search visible-xs hide" href="#"><i class="icon icon_search"></i></a>
                   <div class="search-form-modal transition">
                     <form class="navbar-form header_search_form">
@@ -65,11 +69,14 @@
                       <i class="fa fa-times search-form_close"></i>
                     </form>
                   </div>
+                  <?php */ ?>
+
                   <div class="navbar-header visible-xs">
                     <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                   </div>
 
                   <nav id="navbar-collapse-1" class="navbar-collapse collapse">
+                    <?php /* ?>
                     <a class="btn_header_search hidden" href="#"><i class="icon icon_search"></i></a>
                     <div class="search-form-modal transition">
                       <form class="navbar-form header_search_form">
@@ -80,6 +87,7 @@
                         <button class="btn_search btn btn-primary btn-effect"><?php the_field('buscar', 'option') ?></button>
                       </form>
                     </div>
+                    <?php */ ?>
 
                     <a href="<?php echo home_url(); ?>" class="logo pull-left"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="logo"></a>
                     <?php navMain(); ?>
