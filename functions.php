@@ -197,7 +197,7 @@ function navMain()
 }
 
 class My_Walker_Nav_Menu extends Walker_Nav_Menu {
-  function start_lvl(&$output, $depth) {
+  function start_lvl(&$output, $depth = 0, $args = array()) {
     $indent = str_repeat("\t", $depth);
     $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
   }
@@ -348,7 +348,8 @@ function html5wp_excerpt($length_callback = 100, $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    // return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '...';
 }
 
 // Remove Admin bar
@@ -617,5 +618,71 @@ function create_post_type_custom()
         'can_export' => true,
         'taxonomies' => array()
     ));
+
+    // function delete_post_type(){
+    //     unregister_post_type( 'acesso-restrito' );
+    // }
+    // add_action('init','delete_post_type');
+
+    register_post_type('acesso-restrito',
+        array(
+        'labels' => array(
+            'name' => __('Acesso Restrito', 'acesso-restrito'),
+            'singular_name' => __('Acesso Restrito', 'acesso-restrito'),
+            'add_new' => __('Adicionar novo', 'acesso-restrito'),
+            'add_new_item' => __('Adicionar novo', 'acesso-restrito'),
+            'edit' => __('Editar', 'acesso-restrito'),
+            'edit_item' => __('Editar', 'acesso-restrito'),
+            'new_item' => __('Novo', 'acesso-restrito'),
+            'view' => __('Ver', 'acesso-restrito'),
+            'view_item' => __('Ver', 'acesso-restrito'),
+            'search_items' => __('Procurar por ...', 'acesso-restrito'),
+            'not_found' => __('Nenhum item encontrado', 'acesso-restrito'),
+            'not_found_in_trash' => __('Nenhum item encontrado na lixeira', 'acesso-restrito')
+        ),
+        'public' => true,
+        'hierarchical' => false,
+        'has_archive' => true,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        // 'map_meta_cap' => true,
+        // 'capability_type' => array('subscriber','administrator'),
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        ),
+        'can_export' => true,
+        'taxonomies'  => array( 'category' ),
+    ));
 }
+
+function acessoRestrito() {
+  global $post;
+  if ( is_post_type_archive( 'acesso-restrito' ) ) {
+    $userID = get_current_user_id();
+    $user_info = get_userdata($userID);
+    if ($user_info->roles==NULL) {
+?>
+      <meta http-equiv="refresh" content="0;URL='<?php echo home_url(); ?>'" />
+<?php
+      exit;
+    }
+  }  
+}
+add_action('get_header', 'acessoRestrito');
+
+
+/*------------------------------------*\
+    Custom User
+\*------------------------------------*/
+add_role(
+  'voluntario',
+  __( 'Voluntário' )
+);
+
+add_role(
+  'gestor',
+  __( 'Gestor' )
+);
 ?>

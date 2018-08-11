@@ -27,6 +27,9 @@
   </head>
   <body class='<?php body_class(); ?>'>
     <div id="page-preloader"><span class="spinner"></span></div>
+    <?php if (is_post_type_archive('acesso-restrito')): ?>
+      <?php get_template_part('acesso-restrito/header'); ?>
+    <?php else: ?>
     <div class="layout-theme animated-css" id="wrapper" data-header="sticky" data-header-top="200">
       <header class="header header_mod-b">
         <div class="top-header navbar-header">
@@ -98,3 +101,4 @@
           </div>
         </div>
       </header>
+    <?php endif; ?>

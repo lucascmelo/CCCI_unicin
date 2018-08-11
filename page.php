@@ -63,6 +63,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 						?>
 						<ul class="list-widget list-mark list-mark_mod-a">
+							<?php
+							$agendaPage = get_post($ancestorsID);
+							$agendaSlug = $agendaPage->post_name;
+							if ($agendaSlug == 'agenda' || is_page('agenda')) {
+							?>
+							<li class='<?php echo (is_page('agenda')) ? "list-mark-active " : ""; ?>'><a href="<?php echo site_url('agenda');?>"><?php echo get_the_title($agendaPage);?></a></li>
+							<?php
+							}
+							?>
 							<?php foreach ($subpages as $page): ?>
 								<?php 
 								$childOfSubPage = get_ancestors($page->ID, 'page');
@@ -77,14 +86,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 						</ul>
 					</div>
 				</div>
-				<?php if(1==2 && $ancestorsID == get_id_by_slug('unicin')): ?>
+				<?php if($ancestorsID == get_id_by_slug('unicin')): ?>
 				<div class="widget">
 					<div class="widget-content">
+						<a class="download-link" href="https://docs.google.com/viewerng/viewer?url=http://unicin.org/wp-content/uploads/2018/07/Pronunciamento_de_Posse_Marina_Thomaz_-__2015.09.13_rev._MT_1.pdf" target="_blank"><i class="icon flaticon-pdf17"></i>Pronunciamento de Posse - Marina Thomaz</a>
+
+						<?php /* ?>
 						<?php $estatuto = get_field('estatuto', 'option'); ?>
 						<a class="download-link" href="<?php echo $estatuto['url']; ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('Estatuto', 'ccci'); ?></a>
 
 						<?php $organograma = get_field('estatuto', 'option'); ?>
 						<a class="download-link" href="<?php echo $organograma['url']; ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('Organograma', 'ccci'); ?></a>
+						<?php */ ?>
 					</div>
 				</div>
 				<?php endif; ?>

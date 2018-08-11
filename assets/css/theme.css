@@ -2436,3 +2436,91 @@ img {
 .ferramentas-de-autopesquisa .ui-title-inner + .border-decor {
 	margin-bottom: 10px;
 }
+
+
+
+@media (max-width: 1199px) {
+	.yamm {
+		margin-top: 11px;
+	}
+}
+
+@media (max-width: 991px) {
+	.top-header__info {
+		display: none!important;
+	}
+
+	.logo {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.header_mod-b .yamm .nav {
+		width: 100%;
+		display: inline-block;
+		margin-top: 0;
+		text-align: center;
+	}
+}
+
+@media (max-width: 767px) {
+	.navbar-header {
+		text-align: center;
+	}
+
+	.header_mod-b .yamm .nav {
+		text-align: left;
+	}
+
+	.yamm .navbar-toggle {
+		float: none;
+		margin: 10px auto;
+	}
+
+	.header_mod-b .yamm .nav > li > a {
+		color: #fff;
+		border: 0!important;
+		overflow-wrap: break-word;
+	  	word-wrap: break-word;
+	}
+
+	.header_mod-b .yamm .nav > li > a:hover {
+		width: auto;
+		background: none !important;
+		color: #fff!important;
+	}
+
+	.header_mod-b .yamm .dropdown-menu {
+		top: 0;
+		left: 0;
+		position: static;
+		background-color: #1a4482!important;
+		border: 0;
+		padding-bottom: 20px;
+		box-shadow: none;
+		display: block!important;
+		padding: 0 0 0 30px;
+		list-style: disc!important;
+		opacity: 1!important;
+		overflow-wrap: break-word;
+	  	word-wrap: break-word;
+	}
+
+	.header_mod-b .yamm .dropdown-menu li {
+		background: #1a4482;
+		overflow-wrap: break-word;
+	  	word-wrap: break-word;
+	}
+	.header_mod-b .yamm .dropdown-menu a {
+		width: auto!important;
+		background: none; 
+		overflow-wrap: break-word;
+	  	word-wrap: break-word;
+	}
+
+	.header_mod-b .yamm .nav {
+		width: auto!important;
+		margin: 0;
+	}
+}
