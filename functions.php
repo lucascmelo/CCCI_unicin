@@ -533,6 +533,34 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
+
+if (!is_user_logged_in()) {
+    add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
+    add_action('wp_ajax_ajaxlogin', 'ajax_login' );
+}
+
+function ajax_login(){
+
+    // First check the nonce, if it fails the function will break
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+
+    // Nonce is checked, get the POST data and sign user on
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    // $info['user_email'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+    } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
+    }
+
+    die();
+}
+
 /*------------------------------------*\
     Custom Post Types
 \*------------------------------------*/
@@ -619,47 +647,64 @@ function create_post_type_custom()
         'taxonomies' => array()
     ));
 
-    // function delete_post_type(){
-    //     unregister_post_type( 'acesso-restrito' );
-    // }
-    // add_action('init','delete_post_type');
-
-    register_post_type('acesso-restrito',
+    register_post_type('painel',
         array(
         'labels' => array(
-            'name' => __('Acesso Restrito', 'acesso-restrito'),
-            'singular_name' => __('Acesso Restrito', 'acesso-restrito'),
-            'add_new' => __('Adicionar novo', 'acesso-restrito'),
-            'add_new_item' => __('Adicionar novo', 'acesso-restrito'),
-            'edit' => __('Editar', 'acesso-restrito'),
-            'edit_item' => __('Editar', 'acesso-restrito'),
-            'new_item' => __('Novo', 'acesso-restrito'),
-            'view' => __('Ver', 'acesso-restrito'),
-            'view_item' => __('Ver', 'acesso-restrito'),
-            'search_items' => __('Procurar por ...', 'acesso-restrito'),
-            'not_found' => __('Nenhum item encontrado', 'acesso-restrito'),
-            'not_found_in_trash' => __('Nenhum item encontrado na lixeira', 'acesso-restrito')
+          'name' => __('Páginas Restritas', 'painel')
+        ),
+        'public' => true,
+        'hierarchical' => true,
+        'has_archive' => true,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'supports' => array(
+            'title'
+        )
+    ));
+
+    register_post_type('documentos',
+        array(
+        'labels' => array(
+          'name' => __('Documentos', 'documentos'),
+          'singular_name' => __('Documentos', 'documentos'),
+          'add_new' => __('Adicionar novo', 'documentos'),
+          'add_new_item' => __('Adicionar novo', 'documentos'),
+          'edit' => __('Editar', 'documentos'),
+          'edit_item' => __('Editar', 'documentos'),
+          'new_item' => __('Novo', 'documentos'),
+          'view' => __('Ver', 'documentos'),
+          'view_item' => __('Ver', 'documentos'),
+          'search_items' => __('Procurar por ...', 'documentos'),
+          'not_found' => __('Nenhum item encontrado', 'documentos'),
+          'not_found_in_trash' => __('Nenhum item encontrado na lixeira', 'documentos')
         ),
         'public' => true,
         'hierarchical' => false,
         'has_archive' => true,
         'exclude_from_search' => true,
         'show_ui' => true,
-        // 'map_meta_cap' => true,
-        // 'capability_type' => array('subscriber','administrator'),
         'supports' => array(
-            'title',
-            'editor',
-            'thumbnail'
+          'title',
+          'editor',
+          'thumbnail'
         ),
         'can_export' => true,
-        'taxonomies'  => array( 'category' ),
+        'taxonomies'  => array( 'arquivos' ),
     ));
+
+    register_taxonomy (
+      'arquivos',
+      'documentos',
+      array(
+        'label' => __( 'Categoria' ),
+        'hierarchical' => true
+      )
+    );
 }
 
 function acessoRestrito() {
   global $post;
-  if ( is_post_type_archive( 'acesso-restrito' ) ) {
+  if ( is_post_type_archive( 'painel' ) || is_post_type_archive( 'documentos' ) ) {
     $userID = get_current_user_id();
     $user_info = get_userdata($userID);
     if ($user_info->roles==NULL) {

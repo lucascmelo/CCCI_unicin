@@ -14,8 +14,19 @@
     ga('send', 'pageview');
     </script>
     <?php wp_head(); ?>
-
+    <?php 
+    if (
+         is_singular('painel')
+      || is_post_type_archive('painel')
+      || is_singular('documentos')
+      || is_post_type_archive('documentos') 
+      || is_tax( 'arquivos')
+    ):
+    ?>
+      <link href="<?php echo get_template_directory_uri(); ?>/assets/css/acesso-restrito.css" rel="stylesheet">
+    <?php else: ?>
     <link href="<?php echo get_template_directory_uri(); ?>/assets/css/master.css" rel="stylesheet">
+    <?php endif; ?>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/modernizr.custom.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib/conditionizr-4.3.0.min.js"></script>
     <script>
@@ -27,9 +38,17 @@
   </head>
   <body class='<?php body_class(); ?>'>
     <div id="page-preloader"><span class="spinner"></span></div>
-    <?php if (is_post_type_archive('acesso-restrito')): ?>
-      <?php get_template_part('acesso-restrito/header'); ?>
-    <?php else: ?>
+    <?php 
+    if (
+         is_singular('painel')
+      || is_post_type_archive('painel')
+      || is_singular('documentos')
+      || is_post_type_archive('documentos') 
+      || is_tax( 'arquivos')
+    ):
+      get_template_part('painel/header');
+    else:
+    ?>
     <div class="layout-theme animated-css" id="wrapper" data-header="sticky" data-header-top="200">
       <header class="header header_mod-b">
         <div class="top-header navbar-header">
@@ -38,7 +57,7 @@
               <div class="col-xs-12">
                 <div class="top-header__info">
                   <ul class="social-links list-inline">
-                    <li><a target="_blank" href="<?php echo site_url('wp-admin') ?>"><?php the_field('acesso_restrito', 'option') ?></a></li>
+                    <li><a href="<?php echo site_url('painel') ?>"><?php the_field('acesso_restrito', 'option') ?></a></li>
                   </ul>
                 </div>
                 <div class="header-language btn-group">

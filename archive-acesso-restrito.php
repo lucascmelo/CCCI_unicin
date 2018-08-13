@@ -23,7 +23,7 @@
                   <?php
                   wp_reset_postdata();
                   $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-                  $blog = new WP_Query(array('post_type' => 'acesso-restrito', 'paged' => $paged,  'posts_per_page' => 1));
+                  $blog = new WP_Query(array('post_type' => 'acesso-restrito', 'paged' => $paged,  'posts_per_page' => -1));
                   if ( $blog->have_posts() ) : while ( $blog->have_posts() ) : $blog->the_post();
                   ?>
                   <tr>
