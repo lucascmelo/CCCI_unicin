@@ -27,19 +27,18 @@ else:
           <a href="<?php echo site_url('/') ?>"><i class="fa fa-desktop fa-fw"></i> ACESSAR SITE</a>
         </li>
         <li>
+          <a class="<?php echo is_single('dashboard') ? 'active' : '' ?>" href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>
+        <li>
           <a href="<?php echo site_url('/painel/minha-conta') ?>"><i class="fa fa-user fa-fw"></i> Minha Conta</a>
         </li>
         <?php
-        if ($user_info->roles == "gestor" || $user_info->roles == "administrator"):
+        if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
         ?>
         <li>
           <a href="<?php echo admin_url('users.php') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
         </li>
         <?php endif; ?>
-
-        <li>
-          <a class="<?php echo is_single('dashboard') ? 'active' : '' ?>" href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-        </li>
 
         <li class="active">
           <a href="<?php echo site_url('/painel/arquivos') ?>"><i class="fa fa-archive fa-fw"></i> Categorias<span class="fa arrow"></span></a>
