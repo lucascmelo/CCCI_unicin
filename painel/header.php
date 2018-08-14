@@ -38,11 +38,11 @@ else:
         <?php endif; ?>
 
         <li>
-          <a href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+          <a class="<?php echo is_single('dashboard') ? 'active' : '' ?>" href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
         </li>
 
         <li class="active">
-          <a href="<?php echo site_url('/painel/arquivos') ?>"><i class="fa fa-file-text-o fa-fw"></i> Categorias<span class="fa arrow"></span></a>
+          <a href="<?php echo site_url('/painel/arquivos') ?>"><i class="fa fa-archive fa-fw"></i> Categorias<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level collapse in">
             <?php 
             $taxPermited = get_field('areas_de_acesso', 'user_'.$userID);

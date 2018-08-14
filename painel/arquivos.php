@@ -65,8 +65,8 @@ if (is_post_type_archive('documentos')) {
                     }
                   }
 
-                  $blog = new WP_Query($args);
-                  if ( $blog->have_posts() ) : while ( $blog->have_posts() ) : $blog->the_post();
+                  $files = new WP_Query($args);
+                  if ( $files->have_posts() ) : while ( $files->have_posts() ) : $files->the_post();
                   ?>
                   <tr>
                     <td><a href="<?php the_permalink() ?>"><?php the_title(); ?> <small>(saiba mais)</small></a></td>

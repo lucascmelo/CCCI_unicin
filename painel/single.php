@@ -19,19 +19,15 @@ foreach ($cats as $cat) {
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-          	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          		<?php 
-              if ($blocked) {
-                echo 'Conteúdo bloqueado.';
-              }else{
-                the_content();
-              }
-              ?>
-          	<?php endwhile;endif; ?>
-          </div>
-        </div>
+      	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      		<?php 
+          if ($blocked) {
+            echo 'Conteúdo bloqueado.';
+          }else{
+            the_content();
+          }
+          ?>
+      	<?php endwhile;endif; ?>
       </div>
     </div>
   </div>
