@@ -1,5 +1,7 @@
 <?php 
-$tax = get_queried_object(); 
+$tax = get_queried_object();
+$taxPermited = get_field('areas_de_acesso', 'user_'.get_current_user_id());
+
 if (is_post_type_archive('documentos')) {
   $tax = null;
 }
@@ -8,7 +10,7 @@ if (is_post_type_archive('documentos')) {
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"><?php echo (is_object($tax) && $tax->term_id) ? $tax->name : 'Arquivos' ?></h1>
+        <h1 class="page-header"><?php echo (is_object($tax) && $tax->term_id && in_array($tax->term_id, $taxPermited)) ? $tax->name : 'Arquivos' ?></h1>
       </div>
     </div>
     <div class="row">
@@ -20,30 +22,47 @@ if (is_post_type_archive('documentos')) {
                 <thead>
                   <tr>
                     <th>Título</th>
-                    <th>Categorias</th>
                     <th>Data</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   wp_reset_postdata();
-                  
                   $args = array(
                     'post_type' => 'documentos',
                     'posts_per_page' => -1,
+                    'tax_query' => array(
+                      'relation' => 'AND',
+                      array(
+                        'taxonomy'         => 'arquivos',
+                        'field'            => 'term_id',
+                        'terms'            => $taxPermited,
+                        'operator'         => 'IN',
+                      )
+                    )
                   );
 
                   if (is_object($tax) && $tax->term_id) {
-                    $args = array_merge(
-                      $args, 
-                      array('tax_query' => array(
-                        'relation' => 'AND',
-                        array(
-                          'taxonomy'         => 'arquivos',
-                          'terms'            => array($tax->term_id),
-                          'operator'         => 'IN',
+                    if(in_array($tax->term_id, $taxPermited)){
+                      $args = array(
+                        'post_type' => 'documentos',
+                        'posts_per_page' => -1,
+                        'tax_query' => array(
+                          'relation' => 'AND',
+                          array(
+                            'taxonomy'         => 'arquivos',
+                            'terms'            => array($tax->term_id),
+                            'operator'         => 'IN',
+                          )
                         )
-                    )));
+                      );
+                    }else{
+                      $args = null;
+                      $urlCategories = site_url('painel/arquivos');
+                      echo '<tr><td colspan=2><i class="fas fa-circle-notch fa fa-circle-o-notch fa-spin fa-2x"></i></td></tr>';
+                      echo '<script>window.location.href = "'.$urlCategories.'"</script>';
+
+                    }
                   }
 
                   $blog = new WP_Query($args);
@@ -51,19 +70,6 @@ if (is_post_type_archive('documentos')) {
                   ?>
                   <tr>
                     <td><a href="<?php the_permalink() ?>"><?php the_title(); ?> <small>(saiba mais)</small></a></td>
-                    <td>
-                      <?php 
-                      $cats = wp_get_post_terms(get_the_ID(),'arquivos');
-                      $catsCount = 0;
-                      foreach ($cats as $cat) {
-                        if ($catsCount>0) {
-                          echo ', ';
-                        }
-                        echo $cat->name;
-                        $catsCount++;
-                      }
-                      ?>
-                    </td>
                     <td><?php echo get_the_date(); ?></td>
                   </tr>
                   <?php endwhile;?>

@@ -1,7 +1,11 @@
 <?php
-$userID = get_current_user_id();
-$user_info = get_userdata($userID);
-if ($user_info->roles==NULL || is_single('login')):
+$userID = 0;
+if (is_user_logged_in()) {
+  $userID = get_current_user_id();  
+  $user_info = get_userdata($userID);
+}
+
+if (!$userID || $user_info->roles==NULL || is_single('login')):
   get_template_part('painel/login');
 else:
 ?>
@@ -41,9 +45,11 @@ else:
           <a href="<?php echo site_url('/painel/arquivos') ?>"><i class="fa fa-file-text-o fa-fw"></i> Categorias<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level collapse in">
             <?php 
+            $taxPermited = get_field('areas_de_acesso', 'user_'.$userID);
             $cats = wp_list_categories(array(
               'title_li' => "",
               'taxonomy' => 'arquivos',
+              'include' => $taxPermited
             ));
             ?>
           </ul>
@@ -53,16 +59,15 @@ else:
   </div>
 </nav>  
 <?php
-endif; // login
-
-if (is_single('dashboard') || ($user_info->roles!=NULL && is_post_type_archive( 'painel' ))) {
-  get_template_part('painel/dashboard');
-} else if (is_single('minha-conta')) {
-  get_template_part('painel/minha-conta');
-} else if (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos') ) {
-  get_template_part('painel/arquivos');
-} else if (is_singular('documentos')) {
-  get_template_part('painel/single');
-}
+  if (is_single('dashboard') || ($userID && $user_info->roles!=NULL && is_post_type_archive( 'painel' ))) {
+    get_template_part('painel/dashboard');
+  } else if (is_single('minha-conta')) {
+    get_template_part('painel/minha-conta');
+  } else if (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos') ) {
+    get_template_part('painel/arquivos');
+  } else if (is_singular('documentos')) {
+    get_template_part('painel/single');
+  }
+endif;
 ?>
 <?php get_template_part('painel/footer'); exit; ?>

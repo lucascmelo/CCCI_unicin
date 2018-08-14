@@ -702,21 +702,23 @@ function create_post_type_custom()
     );
 }
 
-function acessoRestrito() {
-  global $post;
-  if ( is_post_type_archive( 'painel' ) || is_post_type_archive( 'documentos' ) ) {
-    $userID = get_current_user_id();
-    $user_info = get_userdata($userID);
-    if ($user_info->roles==NULL) {
-?>
-      <meta http-equiv="refresh" content="0;URL='<?php echo home_url(); ?>'" />
-<?php
-      exit;
+function user_logged($info) {
+  if (isset($_POST['loginVerify'])) {
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+    
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+    
+    $user_signon = wp_signon( $info, false );
+    if(!is_wp_error($user_signon)){
+      wp_set_current_user($user_signon->ID);
+      wp_get_current_user();
     }
-  }  
+  }
 }
-add_action('get_header', 'acessoRestrito');
-
+add_action( 'after_setup_theme', 'user_logged' );
 
 /*------------------------------------*\
     Custom User
