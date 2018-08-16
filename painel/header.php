@@ -19,7 +19,11 @@ else:
     </button>
     <a class="navbar-brand" href="#" style="height:auto;padding: 5px 15px;"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo.png" style="height: 50px"></a>
   </div>
-
+  <ul class="nav navbar-top-links navbar-right">
+    <li>
+      <a href="<?php echo wp_logout_url(home_url()); ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+    </li>
+  </ul>
   <div class="navbar-default sidebar" style="padding-top: 25px;" role="navigation">
     <div class="sidebar-nav navbar-collapse">
       <ul class="nav in" id="side-menu">
@@ -36,7 +40,7 @@ else:
         if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
         ?>
         <li>
-          <a href="<?php echo admin_url('users.php') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
+          <a href="<?php echo site_url('/painel/gerenciar-voluntarios') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
         </li>
         <?php endif; ?>
 
@@ -62,6 +66,8 @@ else:
     get_template_part('painel/dashboard');
   } else if (is_single('minha-conta')) {
     get_template_part('painel/minha-conta');
+  } else if (is_single('gerenciar-voluntarios')) {
+    get_template_part('painel/gerenciar-voluntarios');
   } else if (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos') ) {
     get_template_part('painel/arquivos');
   } else if (is_singular('documentos')) {
