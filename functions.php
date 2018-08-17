@@ -763,6 +763,29 @@ function get_last_login($user_id) {
 }
 
 
+function get_specifications_fields() {
+
+  global $post;
+  
+  $specifications_group_id = 1520; // Post ID of the specifications field group.
+  $specifications_fields = array();
+  
+  $fields = acf_get_fields( $specifications_group_id );
+  
+  foreach ( $fields as $field ) {
+    $field_value = get_field( $field['name'] );
+    
+    if ( $field_value && !empty( $field_value ) ) {
+      $specifications_fields[$field['name']] = $field;
+      $specifications_fields[$field['name']]['value'] = $field_value;
+    }
+  }
+  
+  return $specifications_fields;
+
+}
+
+
 
 // add_filter('acf/load_field', 'get_field_choices', 1, 2);
 // function api_acf_load_field( $field, $field_key )

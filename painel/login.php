@@ -37,6 +37,11 @@
               <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
             </fieldset>
           </form>
+          <hr>
+          <div class="alert alert-warning">
+            <i class="fa fa-warning"></i> Se você não possuí um cadastro, entre em contato o coordenador da IC em que você é voluntário.
+          </div>
+
           <?php else: ?>
             <p class="text-center"><i class="fas fa-circle-notch fa fa-circle-o-notch fa-spin fa-2x"></i></p>
             <script>window.location.href = "<?php echo site_url('painel/dashboard') ?>"</script>
