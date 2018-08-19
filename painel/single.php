@@ -21,7 +21,7 @@ if ($user_info->roles[0] != "administrator") {
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"><?php echo ($blocked) ? 'Conteúdo bloqueado.' : get_the_title(); ?><small><?php echo ($blocked) ? '' : '<br>'.get_the_date('j \d\e F \d\e Y \à\s H:i') ; ?></small></h1>
+        <h1 class="page-header"><i class="fa fa-archive fa-fw"></i> <?php echo ($blocked) ? 'Conteúdo bloqueado.' : get_the_title(); ?><small><?php echo ($blocked) ? '' : '<br>'.get_the_date('j \d\e F \d\e Y \à\s H:i') ; ?></small></h1>
       </div>
     </div>
     <div class="row">

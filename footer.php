@@ -54,6 +54,54 @@
 			</div>
 		</div>
 	</footer>
+	<?php if (is_home()): ?>
+	<div class="modal fade" id="modalSenso2018" tabindex="-1" role="dialog" style="z-index: 99999">
+	  <style>
+	    .modal-backdrop {z-index: 11040!important}
+	  </style>
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: 0">
+	        <button style="font-size: 28px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      </div>
+	      <div class="modal-body" style="width:100%;display: inline-block;">
+	        <p class="text-center"><img class="img-responsive" style="
+	        display: inline-block;" src="<?php echo get_template_directory_uri(); ?>/assets/img/senso-2018.jpg"></p>
+
+	        <div class="row">
+	          <div class="col-sm-6 col-xs-12">
+	            <p>O Censo da CCCI - 2018 é uma iniciativa do Comitê de Planejamento e Projetos da UNICIN. Está constituído por dois questionários online: o primeiro é dirigido a todos os voluntários de todas as ICs (Instituições Conscienciocêntricas), das Pré-ICs, ECs (Empresas Conscienciocêntricas) e Colégios Invisíveis.</p>
+	            <p>Acessar questionário:<br><a class="btn btn-primary btn-effect" target="_blank" href="https://goo.gl/dB1L9r">https://goo.gl/dB1L9r</a></p>
+	          </div>
+	          <div class="col-sm-6 col-xs-12">
+	            <p>O segundo questionário, focado nos aspectos ligados à longevidade, é apenas para os residentes em Foz do Iguaçu, que deverão preencher também o primeiro.
+	            </p>
+	            <p>Para acessar o segundo questionário, clique:<br>
+	            <a class="btn btn-primary btn-effect" target="_blank" href="https://goo.gl/qVKLK6">https://goo.gl/qVKLK6</a>.</p>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="col-xs-12">
+	            <hr>
+	            <p>O preenchimento dos questionários terá suporte da Equipe Técnica do Censo, pelos canais:</p>
+	            <ul>
+	              <li><i class="fa fa-whatsapp"></i> (45) 99103-7468</li>
+	              <li><i class="fa fa-envelope-o"></i> <a href="censoccci2018@gmail.com"  target="_blank">censoccci2018@gmail.com</a></li>
+	              <li><i class="fa fa-facebook-official"></i> <a href="https://www.facebook.com/CENSO-DA-CCCI-2018-301240467283512" target="_blank">https://www.facebook.com/CENSO-DA-CCCI-2018-301240467283512</a></li>
+	              <li><i class="fa fa-map-marker"></i> Posto de auxílio ao preenchimento, no CEAEC, nos fins de semana.</li>
+	            </ul>
+
+	            <p><strong>Sua participação é muito importante no preenchimento dos questionários e divulgação do Censo da CCCI – 2018!</strong></p>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<?php endif ?>
 </div>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-migrate-1.2.1.js"></script>
@@ -70,5 +118,9 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/plugins/jflickrfeed/jflickrfeed.min.js" ></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/doubletaptogo.js" ></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
+<script>jQuery(document).ready(function($) {
+	if (jQuery('#modalSenso2018').length>0) {jQuery('#modalSenso2018').modal('show');}
+	
+});</script>
 </body>
 </html>

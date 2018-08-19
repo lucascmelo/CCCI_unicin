@@ -878,7 +878,8 @@ img {
 		margin-top: 7px;
 	}
 	.header_mod-b .yamm .nav > li > a {
-		color: #989898;
+		/*color: #989898;*/
+		color: #000;
 		font-weight: 300;
 	}
 	.header_mod-b .btn_header_search {

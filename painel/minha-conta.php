@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">Minha Conta</h1>
+        <h1 class="page-header"><i class="fa fa-user fa-fw"></i> Minha Conta</h1>
       </div>
     </div>
     <div class="row">

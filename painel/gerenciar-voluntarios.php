@@ -60,7 +60,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-4">
                       <div class="form-group">
                         <label>Areas de Acesso <small>(Categorias permitidas)</small></label>
                         <?php 
@@ -80,7 +80,7 @@
                         ?>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-4">
                       <div class="form-group">
                         <label>Instituições Conscienciocêntricas</label>
                         <?php 

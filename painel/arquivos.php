@@ -12,7 +12,7 @@ if (is_post_type_archive('documentos')) {
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"><?php echo (is_object($tax) && $tax->term_id && in_array($tax->term_id, $taxPermited)) ? $tax->name : 'Arquivos' ?></h1>
+        <h1 class="page-header"><i class="fa fa-archive fa-fw"></i> <?php echo (is_object($tax) && $tax->term_id && in_array($tax->term_id, $taxPermited)) ? $tax->name : 'Arquivos' ?></h1>
       </div>
     </div>
     <div class="row">
