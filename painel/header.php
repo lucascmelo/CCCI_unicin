@@ -20,6 +20,16 @@ else:
     <a class="navbar-brand" href="#" style="height:auto;padding: 5px 15px;"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotipo.png" style="height: 50px"></a>
   </div>
   <ul class="nav navbar-top-links navbar-right">
+    <?php
+    if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
+    ?>
+    <li>
+      <a href="<?php echo site_url('/painel/gerenciar-voluntarios') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
+    </li>
+    <?php endif; ?>
+    <li>
+      <a href="<?php echo site_url('/painel/minha-conta') ?>"><i class="fa fa-user fa-fw"></i> Minha Conta</a>
+    </li>
     <li>
       <a href="<?php echo wp_logout_url(home_url()); ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
     </li>
@@ -33,26 +43,19 @@ else:
         <li>
           <a class="<?php echo is_single('dashboard') ? 'active' : '' ?>" href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
         </li>
-        <li>
-          <a href="<?php echo site_url('/painel/minha-conta') ?>"><i class="fa fa-user fa-fw"></i> Minha Conta</a>
-        </li>
-        <?php
-        if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
-        ?>
-        <li>
-          <a href="<?php echo site_url('/painel/gerenciar-voluntarios') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
-        </li>
-        <?php endif; ?>
-
-        <li class="active">
-          <a href="<?php echo site_url('/painel/arquivos') ?>"><i class="fa fa-archive fa-fw"></i> Categorias<span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse in">
+        <li class="<?php echo (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos')) ? 'active' : '' ?>">
+          <a href="#"><i class="fa fa-archive fa-fw"></i> Categorias<span class="fa arrow"></span></a>
+  
+          <?php 
+          ?>
+          <ul class="nav nav-second-level <?php echo (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos')) ? 'collapsed' : 'collapse' ?>">
+            <li class="<?php echo (is_single('arquivos')) ? 'current-cat' : '' ?>"><a href="<?php echo site_url('/painel/arquivos') ?>">Todos</a></li>
             <?php 
-            $taxPermited = get_field('areas_de_acesso', 'user_'.$userID);
             $cats = wp_list_categories(array(
               'title_li' => "",
               'taxonomy' => 'arquivos',
-              'include' => $taxPermited
+              // 'include'  => $taxPermited,
+              'hide_empty' => 0,
             ));
             ?>
           </ul>

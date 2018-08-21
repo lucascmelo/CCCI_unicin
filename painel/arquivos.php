@@ -12,7 +12,7 @@ if (is_post_type_archive('documentos')) {
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"><i class="fa fa-archive fa-fw"></i> <?php echo (is_object($tax) && $tax->term_id && in_array($tax->term_id, $taxPermited)) ? $tax->name : 'Arquivos' ?></h1>
+        <h1 class="page-header"><i class="fa fa-archive fa-fw"></i> <?php echo (is_object($tax) && $tax->term_id) ? $tax->name : 'Arquivos' ?></h1>
       </div>
     </div>
     <div class="row">
@@ -45,13 +45,13 @@ if (is_post_type_archive('documentos')) {
                         array(
                           'taxonomy'         => 'arquivos',
                           'field'            => 'term_id',
-                          'terms'            => $taxPermited,
+                          'terms'            => array($tax->term_id),
                           'operator'         => 'IN',
                         )
                       )
                     );
 
-                    if (is_object($tax) && $tax->term_id) {
+                    if (false && is_object($tax) && $tax->term_id) {
                       if(in_array($tax->term_id, $taxPermited)){
                         $args = array(
                           'post_type' => 'documentos',
@@ -82,11 +82,15 @@ if (is_post_type_archive('documentos')) {
                     <td><a href="<?php the_permalink() ?>"><?php the_title(); ?> <small>(saiba mais)</small></a></td>
                     <td><?php echo get_the_date('j \d\e F \d\e Y \à\s H:i'); ?></td>
                   </tr>
-                  <?php endwhile;?>
+                  <?php endwhile;else:?>
+                  <tr>
+                    <td colspan="2">Nenhum arquivo encontrado.</td>
+                  </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <?php endif; ?>
+            
           </div>
         </div>
       </div>

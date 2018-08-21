@@ -41,6 +41,47 @@ $(document).ready(function() {
         }
     });
 
+    jQuery(document).off('click', '.sidebar-nav a[href=#]');
+    jQuery(document).on('click', '.sidebar-nav a[href=#]', function(event) {
+        var _this = jQuery(this),
+        ul = _this.next();
+
+        if (ul.is('ul')) {
+            event.preventDefault();
+            _this.parent().toggleClass('active');
+            if(_this.parent().hasClass('active')){
+                ul.slideDown();
+            }else{
+                ul.slideUp();
+            }
+        }
+    });
+
+    jQuery(".nav-second-level .children").each(function(index, el) {
+        var _this = jQuery(this),
+        prev      = _this.prev(),
+        all       = jQuery('<li/>').html(prev[0].outerHTML);
+        all.find('a').addClass('all').text('Todos');
+
+        _this.prepend(all[0].outerHTML)
+        prev.addClass('font-bold');
+        prev.attr('href', '#');
+        prev.append('<span class="fa arrow"></span>');
+    });
+
+    var currentCat = jQuery(".nav-second-level .current-cat");
+    if (currentCat.find('.children').length>0) {
+        currentCat.find(".all").eq(0).parent().addClass('current-cat');
+        currentCat.removeClass('current-cat');
+    }
+
+    jQuery(".nav-second-level .children").addClass('collapse');
+    jQuery(".nav-second-level .current-cat").each(function(index, el) {
+        var _this = jQuery(this);
+        
+        _this.parents('.children').removeClass('collapse').addClass('collapsed');
+    });
+
 
 /////////////////////////////////////////////////////////////////
 // Contato

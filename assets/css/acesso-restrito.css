@@ -93,9 +93,15 @@ body {
 .sidebar ul li {
   border-bottom: 1px solid #e7e7e7;
 }
-.sidebar ul li.current-cat a,
+.sidebar ul li.current-cat-parent > a,
+.sidebar ul li.current-cat-ancestor > a,
 .sidebar ul li a.active {
   background-color: #eeeeee;
+}
+
+.sidebar ul li.current-cat a {
+	background-color: #ccc;
+	font-weight: bold; 
 }
 .sidebar .arrow {
   float: right;
@@ -471,4 +477,22 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+
+
+#side-menu a {
+	color: #000!important;
+}
+
+.font-bold {
+	font-weight: bold;
+}
+
+.nav .children .children a {
+	padding-left: 67px!important;
+}
+
+.sidebar .current-cat-ancestor > a > .fa.arrow::before,
+.sidebar .current-cat-parent > a > .fa.arrow::before{
+	content: "\f107";
 }
