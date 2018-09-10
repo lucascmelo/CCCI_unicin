@@ -51,7 +51,7 @@ if (is_post_type_archive('documentos')) {
                       )
                     );
 
-                    if (false && is_object($tax) && $tax->term_id) {
+                    if (is_object($tax) && $tax->term_id) {
                       if(in_array($tax->term_id, $taxPermited)){
                         $args = array(
                           'post_type' => 'documentos',

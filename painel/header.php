@@ -51,10 +51,11 @@ else:
           <ul class="nav nav-second-level <?php echo (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos')) ? 'collapsed' : 'collapse' ?>">
             <li class="<?php echo (is_single('arquivos')) ? 'current-cat' : '' ?>"><a href="<?php echo site_url('/painel/arquivos') ?>">Todos</a></li>
             <?php 
+            $taxPermited = get_field('areas_de_acesso', 'user_'.$userID);
             $cats = wp_list_categories(array(
               'title_li' => "",
               'taxonomy' => 'arquivos',
-              // 'include'  => $taxPermited,
+              'include'  => $taxPermited,
               'hide_empty' => 0,
             ));
             ?>

@@ -105,12 +105,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 <strong class="cd-date">
                   <?php 
                   $date = get_field('fundacao_ics', false, false);
-                  $fuso = new DateTimeZone('America/Sao_Paulo');
                   $date = new DateTime($date);
-                  $date->setTimezone($fuso);
                   echo $date->format('d/m/Y');
                   ?>
                   </strong>
+
               </div>
             </div>
             <?php endwhile;endif; ?>

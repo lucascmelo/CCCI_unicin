@@ -6,14 +6,14 @@ $cats        = wp_get_post_terms(get_the_ID(),'arquivos');
 $blocked     = 0;
 
 if ($user_info->roles[0] != "administrator") {
-  // $blocked     = 1;
-  // foreach ($cats as $cat) {
-  //   $catSingle[] = $cat->term_id;
-  //   if(in_array($cat->term_id, $taxPermited)){
-  //     $blocked = 0;
-  //     break;    
-  //   }
-  // }
+  $blocked     = 1;
+  foreach ($cats as $cat) {
+    $catSingle[] = $cat->term_id;
+    if(in_array($cat->term_id, $taxPermited)){
+      $blocked = 0;
+      break;    
+    }
+  }
 }
 ?>
 <div id="page-wrapper">
