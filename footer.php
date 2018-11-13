@@ -54,7 +54,7 @@
         </div>
       </div>
     </footer>
-    <?php if (false && is_home()): ?>
+    <?php if (is_home()): ?>
       <div class="modal fade" id="modalNoticias" tabindex="-1" role="dialog" style="z-index: 99999">
         <style>
         .modal-backdrop {z-index: 11040!important}
@@ -96,42 +96,42 @@
           <div class="modal-body" style="width:100%;display: inline-block;">
             <ul class="nav nav-tabs" role="tablist">
               <li class="active"><a href="#notice1" data-toggle="tab"><i class="fa fa-bookmark fa-2x"></i></a></li>
+              <li class=""><a href="#notice2" data-toggle="tab"><i class="fa fa-bookmark fa-2x"></i></a></li>
             </ul>
             <div class="loading-tab"></div>
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="notice1">
-                <p class="text-center"><img class="img-responsive" style="
-                display: inline-block;" src="<?php echo get_template_directory_uri(); ?>/assets/img/senso-2018.jpg"></p>
-                <h2
-                style="text-align: center;padding: 10px;font-weight: bold;background: #77be06;color: #fff;margin-bottom: 50px;"
-                >Prazo Prorrogado até dia 15/09/2018</h2>
-                <div class="row">
-                  <div class="col-sm-6 col-xs-12">
-                    <p>O Censo da CCCI - 2018 é uma iniciativa do Comitê de Planejamento e Projetos da UNICIN. Está constituído por dois questionários online: o primeiro é dirigido a todos os voluntários de todas as ICs (Instituições Conscienciocêntricas), das Pré-ICs, ECs (Empresas Conscienciocêntricas) e Colégios Invisíveis.</p>
-                    <p>Acessar questionário:<br><a class="btn btn-primary btn-effect" target="_blank" href="https://goo.gl/dB1L9r">https://goo.gl/dB1L9r</a></p>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <p>O segundo questionário, focado nos aspectos ligados à longevidade, é apenas para os residentes em Foz do Iguaçu, que deverão preencher também o primeiro.
-                    </p>
-                    <p>Para acessar o segundo questionário, clique:<br>
-                    <a class="btn btn-primary btn-effect" target="_blank" href="https://goo.gl/qVKLK6">https://goo.gl/qVKLK6</a>.</p>
-                  </div>
-                </div>
+                <p class="text-center">
+                  <img src="http://unicin.org/wp-content/uploads/2018/11/congracamento-ccci-2018.jpeg" style="width:100%;">
+                </p>
+                <h2 style="text-align: center;padding: 10px;font-weight: bold;background: #77be06;color: #fff;margin-bottom: 50px;">
+                  30º Congraçamento da CCCI 2018
+                </h2>
                 <div class="row">
                   <div class="col-xs-12">
-                    <hr>
-                    <p>O preenchimento dos questionários terá suporte da Equipe Técnica do Censo, pelos canais:</p>
-                    <ul>
-                      <li><i class="fa fa-whatsapp"></i> (45) 99103-7468</li>
-                      <li><i class="fa fa-envelope-o"></i> <a href="censoccci2018@gmail.com"  target="_blank">censoccci2018@gmail.com</a></li>
-                      <li><i class="fa fa-facebook-official"></i> <a href="https://www.facebook.com/CENSO-DA-CCCI-2018-301240467283512" target="_blank">https://www.facebook.com/CENSO-DA-CCCI-2018-301240467283512</a></li>
-                      <li><i class="fa fa-map-marker"></i> Posto de auxílio ao preenchimento, no CEAEC, nos fins de semana.</li>
-                    </ul>
-
-                    <p><strong>Sua participação é muito importante no preenchimento dos questionários e divulgação do Censo da CCCI – 2018!</strong></p>
+                    <p>Nos dias 8 e 9 de Dezembro de 2018 ocorrerá em Foz do Iguaçu/PR no CEAEC o 30º Congraçamento da CCCI 2018.</p>
+                    <p>Venha integrar para expandir.</p>
                   </div>
                 </div>
               </div>
+
+              <div role="tabpanel" class="tab-pane" id="notice2">
+                <p class="text-center">
+                  <iframe style="width: 100%" height="315" src="https://www.youtube.com/embed/6QW3yitofrQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </p>
+                <h2 style="text-align: center;padding: 10px;font-weight: bold;background: #77be06;color: #fff;margin-bottom: 50px;">
+                  Conselho de EPICONS
+                </h2>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p>O Conselho de EPICONS está abrindo um provo processo de seleção para novos EPICONS até o dia <strong>30/11/2018.</strong></p>
+                    <p>Acessar site para mais informações<br><a class="btn btn-primary btn-effect" target="_blank" href="http://www.conselhodeepicons.org.br/">http://www.conselhodeepicons.org.br/</a></p>
+                  </div>
+                </div>
+              </div>
+
+              
+            
             </div>
             <div class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Fechar</button>
