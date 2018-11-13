@@ -54,7 +54,7 @@
         </div>
       </div>
     </footer>
-    <?php if (is_home()): ?>
+    <?php if (false && is_home()): ?>
       <div class="modal fade" id="modalNoticias" tabindex="-1" role="dialog" style="z-index: 99999">
         <style>
         .modal-backdrop {z-index: 11040!important}

@@ -1769,7 +1769,7 @@ img {
 	.main-slider__title {
 		color: #ffffff;
 		font: 900 38px/1.1 'Montserrat', sans-serif;
-		text-transform: uppercase;
+		text-transform: unset;
 	}
 	.main-slider__text {
 		font-size: 24px;

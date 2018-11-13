@@ -89,8 +89,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 				<?php if($ancestorsID == get_id_by_slug('unicin')): ?>
 				<div class="widget">
 					<div class="widget-content">
-						<a class="download-link" href="https://docs.google.com/viewerng/viewer?url=http://unicin.org/wp-content/uploads/2018/07/Pronunciamento_de_Posse_Marina_Thomaz_-__2015.09.13_rev._MT_1.pdf" target="_blank"><i class="icon flaticon-pdf17"></i>Pronunciamento de Posse - Marina Thomaz</a>
-
 						<?php /* ?>
 						<?php $estatuto = get_field('estatuto', 'option'); ?>
 						<a class="download-link" href="<?php echo $estatuto['url']; ?>" download><i class="icon flaticon-pdf17"></i><?php echo __('Estatuto', 'ccci'); ?></a>

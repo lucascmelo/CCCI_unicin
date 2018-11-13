@@ -15,7 +15,7 @@
                 <i class="fa fa-users fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge"><?php echo count_users()['total_users']; ?></div>
+                <div class="huge"><?php $usersCount = count_users(); echo $usersCount['total_users']; ?></div>
                 <div>Voluntários</div>
               </div>
             </div>

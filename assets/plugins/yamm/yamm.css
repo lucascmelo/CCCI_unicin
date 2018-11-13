@@ -76,7 +76,7 @@
 	position: relative;
 	display: block;
 	padding: 23px 13px;
-	text-transform: uppercase;
+	text-transform: unset;
 	transition: all .1s ease-out;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 900;

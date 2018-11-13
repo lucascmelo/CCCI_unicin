@@ -24,6 +24,9 @@ else:
     if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
     ?>
     <li>
+      <a href="<?php echo admin_url(); ?>"><i class="fa fa-unlock"></i> Administrador</a>
+    </li>
+    <li>
       <a href="<?php echo site_url('/painel/gerenciar-voluntarios') ?>"><i class="fa fa-address-book"></i> Gerenciar Voluntários</a>
     </li>
     <?php endif; ?>
@@ -37,6 +40,13 @@ else:
   <div class="navbar-default sidebar" style="padding-top: 25px;" role="navigation">
     <div class="sidebar-nav navbar-collapse">
       <ul class="nav in" id="side-menu">
+        <?php
+        if ($user_info->roles[0] == "gestor" || $user_info->roles[0] == "administrator"):
+        ?>
+        <li>
+          <a href="<?php echo admin_url(); ?>"><i class="fa fa-unlock"></i> Administrador</a>
+        </li>
+        <?php endif; ?>
         <li>
           <a href="<?php echo site_url('/') ?>"><i class="fa fa-desktop fa-fw"></i> ACESSAR SITE</a>
         </li>
