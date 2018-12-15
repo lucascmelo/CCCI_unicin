@@ -23,19 +23,19 @@
                   $instagram = get_field('instagram', 'option');
                   ?>
                   <?php if ($facebook!=""): ?>
-                    <a target="_blank" href="<?php echo $facebook; ?>"><i class="icon social_facebook"></i></a> 
+                    <a target="_blank" href="<?php echo $facebook; ?>"><i class="icon social_facebook"></i></a>
                   <?php endif ?>
                   <?php if ($twitter!=""): ?>
-                    <a target="_blank" href="<?php echo $twitter; ?>"><i class="icon social_twitter"></i></a> 
+                    <a target="_blank" href="<?php echo $twitter; ?>"><i class="icon social_twitter"></i></a>
                   <?php endif ?>
                   <?php if ($gplus!=""): ?>
-                    <a target="_blank" href="<?php echo $gplus; ?>"><i class="icon social_googleplus"></i></a> 
+                    <a target="_blank" href="<?php echo $gplus; ?>"><i class="icon social_googleplus"></i></a>
                   <?php endif ?>
                   <?php if ($youtube!=""): ?>
-                    <a target="_blank" href="<?php echo $youtube; ?>"><i class="icon social_youtube"></i></a> 
+                    <a target="_blank" href="<?php echo $youtube; ?>"><i class="icon social_youtube"></i></a>
                   <?php endif ?>
                   <?php if ($instagram!=""): ?>
-                    <a target="_blank" href="<?php echo $instagram; ?>"><i class="icon social_instagram"></i></a> 
+                    <a target="_blank" href="<?php echo $instagram; ?>"><i class="icon social_instagram"></i></a>
                   <?php endif ?>
                 </div>
               </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
     </footer>
-    <?php if (is_home()): ?>
+    <?php if (false && is_home()): ?>
       <div class="modal fade" id="modalNoticias" tabindex="-1" role="dialog" style="z-index: 99999">
         <style>
         .modal-backdrop {z-index: 11040!important}
@@ -85,7 +85,7 @@
           width:0%;
           height: 5px;
           display: inline-block;
-          background: #ddd; 
+          background: #ddd;
         }
         </style>
       <div class="modal-dialog modal-lg" role="document">
@@ -130,8 +130,8 @@
                 </div>
               </div>
 
-              
-            
+
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Fechar</button>
@@ -163,11 +163,11 @@
     if (modalNoticias.length>0) {
       var loadingTab = jQuery("#modalNoticias .loading-tab");
       modalNoticias.modal('show');
-      
+
       function loadingNoticia(){
         loadingTab.animate({
           'width': '100%'
-        }, 
+        },
         {
           duration: timeNoticia,
           step: function(now, fx) {
@@ -199,7 +199,7 @@
         loadingNoticia();
       });
     }
-    
+
   });</script>
 </body>
 </html>
