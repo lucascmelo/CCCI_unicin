@@ -125,7 +125,7 @@
                 <div class="row">
                   <div class="col-xs-12">
                     <p>O Conselho de EPICONS está abrindo um provo processo de seleção para novos EPICONS até o dia <strong>30/11/2018.</strong></p>
-                    <p>Acessar site para mais informações<br><a class="btn btn-primary btn-effect" target="_blank" href="http://www.conselhodeepicons.org.br/">http://www.conselhodeepicons.org.br/</a></p>
+                    <p>A pessoa que se considerar apta à função do epicentrismo consciencial deverá preencher e encaminhar o currículo pessoal da Conscienciologia através do link:<br><a class="btn btn-primary btn-effect" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeKpyythp_g8rCpWhVQbLPIonji4TO1VaNVkA4qr_X9pItaUw/viewform">Formulário de Inscrição</a></p>
                   </div>
                 </div>
               </div>
