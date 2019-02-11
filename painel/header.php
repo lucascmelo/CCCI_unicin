@@ -1,7 +1,7 @@
 <?php
 $userID = 0;
 if (is_user_logged_in()) {
-  $userID = get_current_user_id();  
+  $userID = get_current_user_id();
   $user_info = get_userdata($userID);
 }
 
@@ -53,14 +53,14 @@ else:
         <li>
           <a class="<?php echo is_single('dashboard') ? 'active' : '' ?>" href="<?php echo site_url('/painel/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
         </li>
-        <li class="<?php echo (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos')) ? 'active' : '' ?>">
+        <li class="active">
           <a href="#"><i class="fa fa-archive fa-fw"></i> Categorias<span class="fa arrow"></span></a>
-  
-          <?php 
+
+          <?php
           ?>
-          <ul class="nav nav-second-level <?php echo (is_single('arquivos') || is_tax('arquivos') || is_post_type_archive('documentos')) ? 'collapsed' : 'collapse' ?>">
+          <ul class="nav nav-second-level collapsed">
             <li class="<?php echo (is_single('arquivos')) ? 'current-cat' : '' ?>"><a href="<?php echo site_url('/painel/arquivos') ?>">Todos</a></li>
-            <?php 
+            <?php
             $taxPermited = get_field('areas_de_acesso', 'user_'.$userID);
             $cats = wp_list_categories(array(
               'title_li' => "",
@@ -74,7 +74,7 @@ else:
       </ul>
     </div>
   </div>
-</nav>  
+</nav>
 <?php
   if (is_single('dashboard') || ($userID && $user_info->roles!=NULL && is_post_type_archive( 'painel' ))) {
     get_template_part('painel/dashboard');
