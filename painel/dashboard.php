@@ -80,7 +80,7 @@
             <i class="fa fa-flag-checkered" aria-hidden="true"></i> Bem vindo
           </div>
           <div class="panel-body panel-height">
-            <p>Este ambiente tem o intuito de faciliar a transparencia na CCCI, disponibilizando a todos os membros, documentos e comunicados oficiais.</p>
+            <p>Este ambiente tem o intuito de facilitar a transparência na CCCI, disponibilizando a todos os membros, documentos e comunicados oficiais.</p>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      
+
     </div>
   </div>
 </div>
